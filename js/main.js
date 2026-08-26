@@ -275,6 +275,17 @@ function initScrollSpy(){
   });
 }
 
+/* ---------- Close mobile nav automatically when a link is tapped ---------- */
+function initNavAutoClose(){
+  const nav = document.getElementById("mainNav");
+  if(!nav) return;
+  nav.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => {
+      nav.classList.remove("open");
+    });
+  });
+}
+
 /* ---------- Init everything ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   initHeroSlider();
@@ -282,6 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initListingControls();
   initNavHighlight();
   initScrollSpy();
+  initNavAutoClose();
 
   document.getElementById("cartOverlay")?.addEventListener("click", closeCart);
 
@@ -290,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================================================
-   🆕 Review Image Lightbox
+   Review Image Lightbox
    ========================================================= */
 function openLightbox(src){
   const overlay = document.getElementById("lightboxOverlay");
