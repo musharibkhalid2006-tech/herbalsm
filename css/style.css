@@ -546,28 +546,39 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
   .wa-quick-btn svg{ width:20px; height:20px; }
   .icon-btn{ width:38px; height:38px; }
 
-  /* Dropdown mobile menu — ONE definition, no duplicates */
-  header.site-header{ position:sticky; } /* sticky already creates its own containing block for the absolute child below */
+  /* Dropdown mobile menu — ONE definition, marked !important so it
+     always wins even if a stray/duplicate rule exists elsewhere. */
+  header.site-header{ position:sticky !important; }
+
   nav.main-nav{
-    display:none;
-    position:absolute;
-    top:100%;
-    left:0;
-    width:100%;
-    background:#0c1610;
-    padding:10px 20px 20px;
-    box-shadow:0 10px 20px rgba(0,0,0,.8);
-    z-index:59;
-    flex-direction:column;
-    gap:0;
+    display:none !important;
   }
-  nav.main-nav.open{ display:flex; }
-  nav.main-nav a{
-    display:block;
-    padding:14px 0;
-    color:#f3ecd9;
-    border-bottom:1px solid rgba(201,162,74,.2);
-    font-size:1rem;
+  nav.main-nav.open{
+    display:flex !important;
+    flex-direction:column !important;
+    position:absolute !important;
+    top:100% !important;
+    left:0 !important;
+    right:0 !important;
+    width:100% !important;
+    margin:0 !important;
+    gap:0 !important;
+    background:#0c1610 !important;
+    opacity:1 !important;
+    padding:10px 20px 20px !important;
+    box-shadow:0 14px 30px rgba(0,0,0,.85) !important;
+    z-index:9999 !important;
+    transform:none !important;
+    max-height:calc(100dvh - 100%) !important;
+    overflow-y:auto !important;
+  }
+  nav.main-nav.open a{
+    display:block !important;
+    padding:14px 4px !important;
+    color:#f3ecd9 !important;
+    border-bottom:1px solid rgba(201,162,74,.2) !important;
+    font-size:1rem !important;
+    background:transparent !important;
   }
 }
 
