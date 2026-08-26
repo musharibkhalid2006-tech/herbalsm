@@ -22,7 +22,7 @@
 <!-- ============ HEADER ============ -->
 <header class="site-header">
   <div class="header-row container">
-    <button class="nav-toggle" id="navToggle" aria-label="Menu kholein">
+    <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Menu kholein">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
 
@@ -67,9 +67,9 @@
     <span>NATURE'S</span><span class="big">100%</span><span>HERBAL</span>
   </div>
   <div class="hero-slides">
-    <div class="hero-slide active" style="background-image:url('assets/hair2.jpg');background-position:100% 55%;background-size:100%;"></div>
-    <div class="hero-slide" style="background-image:url('assets/hair1.jpg');background-position:100% 55%;background-size:100%;"></div>
-    <div class="hero-slide" style="background-image:url('assets/hair3.jpg');background-position:100% 55%;background-size:100%;"></div>
+    <div class="hero-slide active" style="background-image:url('assets/hair2.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('assets/hair1.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('assets/hair3.jpg');"></div>
   </div>
   <div class="hero-content">
     <div class="eyebrow">Nature's Secret for Healthy Hair</div>
@@ -116,7 +116,7 @@
 
 <!-- ============ FEATURED PROMO BANNER ============ -->
 <section class="container" style="padding-bottom:20px;">
-  <div class="promo-banner" style="background-image:url('assets/hairoil.jpg');background-position:65% 20%;background-size:100%;">
+  <div class="promo-banner" style="background-image:url('assets/hairoil.jpg');">
     <div class="promo-inner">
       <div class="eyebrow">Limited Time</div>
       <h2>Herbal Combo — Save 20%</h2>
@@ -316,7 +316,7 @@
   </div>
 </div>
 
-<!-- ============ 🆕 NAYA CODE — REVIEW IMAGE LIGHTBOX ============ -->
+<!-- ============ REVIEW IMAGE LIGHTBOX ============ -->
 <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
