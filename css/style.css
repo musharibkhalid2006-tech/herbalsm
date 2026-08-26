@@ -559,9 +559,14 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
   .promo-inner {
     padding: 20px 16px;
   }
-  .product-card .card-img {
-    height: 180px;
-  }
+ .product-card .card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-sm);
+  background-color: #0b140d;
+}
 }
 
 /* Bahut chhote phones (360px se neeche — jaise purane/entry-level devices) */
