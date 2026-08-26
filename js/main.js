@@ -3,8 +3,11 @@
    ========================================================= */
 
 /* ---------- Mobile nav ---------- */
-function toggleNav(){
-  document.getElementById("mainNav").classList.toggle("open");
+function toggleNav() {
+  const nav = document.getElementById("mainNav");
+  if (nav) {
+    nav.classList.toggle("open");
+  }
 }
 
 /* ---------- Hero slider ---------- */
@@ -40,9 +43,6 @@ function initHeroSlider(){
 
 /* ---------- Product card template ---------- */
 function productCardHTML(p){
-  // Discount % ab HAMESHA price/oldPrice se khud calculate hota hai —
-  // isliye kisi bhi product par manually type nahi karna padta aur
-  // number kabhi galat/inconsistent nahi hota.
   const discount = p.oldPrice ? Math.round(100 - (p.price / p.oldPrice * 100)) : null;
   return `
   <div class="product-card" data-cat="${p.category}">
@@ -146,8 +146,6 @@ function renderListingPage(){
     : `<p style="grid-column:1/-1;color:var(--text-muted);text-align:center;padding:60px 0;">No products found. Try adjusting your filters or search criteria.</p>`;
 }
 
-/* 🔧 CHANGE #1: setFilter ab URL bhi update karta hai (?cat=...),
-   taake filter chip click karne par bhi nav-bar sync rahe. */
 function setFilter(cat){
   activeFilter = cat;
   document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === cat));
@@ -195,7 +193,7 @@ function initListingControls(){
   renderListingPage();
 }
 
-/* ---------- Order modal (collect name/address/phone) ---------- */
+/* ---------- Order modal ---------- */
 function openOrderModal(){
   if(getCart().length === 0){
     showToast("Your cart is empty — please add products before checking out.");
@@ -218,9 +216,6 @@ function submitOrderForm(e){
   closeOrderModal();
 }
 
-/* 🔧 CHANGE #2 (NAYA FUNCTION): Ye pehle is file mein bilkul nahi tha.
-   Yehi Hair Oils/Shampoos highlight na hone ki asal wajah thi.
-   Current URL dekh kar decide karta hai konsa nav link "active" hoga. */
 function initNavHighlight(){
   const links = document.querySelectorAll("nav.main-nav a");
   links.forEach(l => l.classList.remove("active"));
@@ -242,11 +237,6 @@ function initNavHighlight(){
   });
 }
 
-/* ---------- Scroll-spy: highlights About / Contact in nav
-   when the user scrolls to (or clicks into) those sections.
-   Home/Shop All/etc are separate pages so they're marked
-   active directly in each page's HTML — this only handles
-   the in-page anchor sections on the homepage. ---------- */
 function initScrollSpy(){
   const homeLink    = document.querySelector('nav.main-nav a[href="index.html"]');
   const aboutLink   = document.querySelector('nav.main-nav a[href="index.html#about"]');
@@ -254,7 +244,7 @@ function initScrollSpy(){
   const aboutSection   = document.getElementById("about");
   const contactSection = document.getElementById("contact");
 
-  if(!aboutSection || !contactSection) return; // sirf homepage par chalta hai
+  if(!aboutSection || !contactSection) return;
 
   const spyLinks = [aboutLink, contactLink].filter(Boolean);
 
@@ -274,11 +264,9 @@ function initScrollSpy(){
   observer.observe(aboutSection);
   observer.observe(contactSection);
 
-  // Click pe turant highlight ho jaye, scroll animation complete hone ka wait na kare
   aboutLink?.addEventListener("click", () => setActive(aboutLink));
   contactLink?.addEventListener("click", () => setActive(contactLink));
 
-  // Jab top par wapas scroll ho to Home dobara active ho jaye
   window.addEventListener("scroll", () => {
     if(window.scrollY < aboutSection.offsetTop - 200){
       spyLinks.forEach(l => l.classList.remove("active"));
@@ -292,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeroSlider();
   renderHomepage();
   initListingControls();
-  initNavHighlight();   /* 🔧 CHANGE #3: yeh call add hui, warna function kabhi chalta hi nahi */
+  initNavHighlight();
   initScrollSpy();
 
   document.getElementById("cartOverlay")?.addEventListener("click", closeCart);
@@ -302,10 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================================================
-   🆕 NAYA CODE — Review Image Lightbox
-   Review screenshot pe click karne se ye bade size mein
-   popup ho kar khulti hai. Kuch bhi purana yahan tak touch
-   nahi hua — sab neeche add kiya gaya hai.
+   🆕 Review Image Lightbox
    ========================================================= */
 function openLightbox(src){
   const overlay = document.getElementById("lightboxOverlay");
