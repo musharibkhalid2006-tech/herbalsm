@@ -683,3 +683,56 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
     fill: #ffffff !important;
   }
 }
+
+/* =========================================================
+   MOBILE MENU DROPDOWN & SOLID BACKGROUND FIX
+   ========================================================= */
+@media (max-width: 920px) {
+  /* Header Positioning Fix */
+  header.site-header {
+    position: relative !important;
+    z-index: 100 !important;
+  }
+
+  /* Main Nav Menu - Solid Color & Header Ke Bilkul Peeche/Neeche Placement */
+  header.site-header nav.main-nav {
+    position: absolute !important;
+    top: 100% !important; /* Header bar ke bilkul neeche se start hoga */
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background: #0e1a12 !important; /* Solid Dark Theme Green (No Transparency) */
+    flex-direction: column !important;
+    padding: 10px 24px 25px !important;
+    gap: 0 !important;
+    display: none !important; /* Hide by default */
+    z-index: 90 !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8) !important;
+    border-bottom: 2px solid var(--gold-dim) !important;
+  }
+
+  /* When Menu is Toggled via JS (toggleNav Function) */
+  header.site-header nav.main-nav.open {
+    display: flex !important;
+  }
+
+  /* Menu Links Styling inside the Dropdown */
+  header.site-header nav.main-nav a {
+    padding: 14px 6px !important;
+    border-bottom: 1px solid rgba(201, 162, 74, 0.2) !important;
+    font-size: 0.95rem !important;
+    color: var(--cream) !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
+
+  header.site-header nav.main-nav a:last-child {
+    border-bottom: none !important;
+  }
+
+  header.site-header nav.main-nav a:hover,
+  header.site-header nav.main-nav a.active {
+    color: var(--gold-light) !important;
+    padding-left: 10px !important;
+  }
+}
