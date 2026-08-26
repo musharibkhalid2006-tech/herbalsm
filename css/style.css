@@ -652,3 +652,43 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
   .lightbox-overlay{padding:14px;}
   .lightbox-close{top:12px;right:12px;width:38px;height:38px;}
 }
+/* ============ MOBILE NAV OPEN MENU FIX ============ */
+@media screen and (max-width: 920px) {
+  /* Menu drawer site header ke bilkul neeche se start hoga */
+  header.site-header nav.main-nav {
+    position: fixed !important;
+    top: 65px !important; /* Header ke exact neeche se shuru hoga */
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: calc(100vh - 65px) !important;
+    background-color: #0e1a12 !important; /* Fully solid background (no transparency) */
+    opacity: 1 !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    padding: 20px 24px !important;
+    gap: 0 !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s ease !important;
+    z-index: 999 !important;
+    overflow-y: auto !important;
+  }
+
+  /* Jab menu open hoga */
+  header.site-header nav.main-nav.open {
+    transform: translateX(0) !important;
+  }
+
+  /* Links ki padding aur border settings */
+  header.site-header nav.main-nav a {
+    width: 100% !important;
+    padding: 14px 0 !important;
+    border-bottom: 1px solid rgba(201, 162, 74, 0.2) !important;
+    font-size: 1.05rem !important;
+    color: #f3ecd9 !important;
+    display: block !important;
+    text-align: left !important;
+  }
+}
