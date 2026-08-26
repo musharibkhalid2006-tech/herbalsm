@@ -29,6 +29,10 @@
 
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
+html,body{
+  max-width:100%;
+  overflow-x:hidden; /* stops any stray element from causing horizontal scroll/jump on mobile */
+}
 body{
   margin:0;
   background:var(--bg);
@@ -79,7 +83,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{
   border-bottom:1px solid var(--line);
   font-size:.8rem;color:var(--text-muted);
 }
-.topbar .container{display:flex;justify-content:space-between;align-items:center;padding:8px 24px;}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;padding:8px 24px;flex-wrap:wrap;gap:4px;}
 .topbar a{color:var(--gold-light);}
 
 header.site-header{
@@ -90,7 +94,7 @@ header.site-header{
 }
 .header-row{display:flex;align-items:center;gap:28px;padding:16px 24px;}
 .logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
-.logo svg{width:34px;height:34px;}
+.logo svg{width:34px;height:34px;flex-shrink:0;}
 .logo-text{display:flex;flex-direction:column;line-height:1;}
 .logo-text b{font-family:var(--font-display);font-size:1.35rem;letter-spacing:.06em;color:var(--gold-light);}
 .logo-text span{font-size:.62rem;letter-spacing:.42em;color:var(--gold-dim);margin-top:3px;}
@@ -99,6 +103,7 @@ nav.main-nav{display:flex;gap:26px;flex:1;justify-content:center;}
 nav.main-nav a{
   font-size:.86rem;letter-spacing:.03em;color:var(--text-muted);
   padding:6px 2px;border-bottom:1px solid transparent;transition:.2s;
+  white-space:nowrap;
 }
 nav.main-nav a:hover,nav.main-nav a.active{color:var(--gold-light);border-color:var(--gold);}
 
@@ -114,12 +119,12 @@ nav.main-nav a:hover,nav.main-nav a.active{color:var(--gold-light);border-color:
 .search-box input::placeholder{color:var(--text-muted);}
 .search-box svg{width:16px;height:16px;stroke:var(--gold-dim);flex-shrink:0;}
 
-.header-actions{display:flex;align-items:center;gap:14px;}
+.header-actions{display:flex;align-items:center;gap:14px;flex-shrink:0;}
 .icon-btn{
   position:relative;width:40px;height:40px;border-radius:50%;
   background:var(--bg-panel);border:1px solid var(--line);
   display:flex;align-items:center;justify-content:center;
-  color:var(--gold-light);transition:.2s;
+  color:var(--gold-light);transition:.2s;flex-shrink:0;
 }
 .icon-btn:hover{background:var(--green-mid);}
 .icon-btn svg{width:18px;height:18px;}
@@ -131,12 +136,16 @@ nav.main-nav a:hover,nav.main-nav a.active{color:var(--gold-light);border-color:
 .wa-quick-btn{
   display:flex;align-items:center;gap:8px;background:var(--wa);color:#08380f;
   font-weight:600;font-size:.82rem;padding:10px 18px;border-radius:999px;border:none;
-  box-shadow:0 8px 20px rgba(37,211,102,.25);transition:transform .2s;
+  box-shadow:0 8px 20px rgba(37,211,102,.25);transition:transform .2s;flex-shrink:0;
 }
 .wa-quick-btn:hover{transform:translateY(-2px);}
-.wa-quick-btn svg{width:17px;height:17px;fill:#08380f;}
+.wa-quick-btn svg{width:17px;height:17px;fill:#08380f;flex-shrink:0;}
 
-.nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:8px;color:var(--gold-light);}
+.nav-toggle{
+  display:none;background:none;border:1px solid var(--line);border-radius:8px;
+  padding:8px;color:var(--gold-light);flex-shrink:0;
+  align-items:center;justify-content:center;
+}
 .nav-toggle svg{width:20px;height:20px;}
 
 /* =========================== HERO =========================== */
@@ -177,7 +186,7 @@ nav.main-nav a:hover,nav.main-nav a.active{color:var(--gold-light);border-color:
 .btn-outline:hover{background:rgba(201,162,74,.1);}
 .btn-wa{background:var(--wa);color:#08380f;}
 .btn-wa:hover{filter:brightness(1.08);}
-.btn svg{width:16px;height:16px;}
+.btn svg{width:16px;height:16px;flex-shrink:0;}
 
 .hero-dots{position:absolute;z-index:3;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:9px;}
 .hero-dots button{width:9px;height:9px;border-radius:50%;border:1px solid var(--gold-dim);background:transparent;padding:0;}
@@ -254,7 +263,7 @@ nav.main-nav a:hover,nav.main-nav a.active{color:var(--gold-light);border-color:
   min-height:2.6em; /* reserves space for 2 lines so every card's title block is the same height */
 }
 .product-vol{font-size:.78rem;color:var(--text-muted);}
-.price-row{display:flex;align-items:baseline;gap:10px;margin-top:2px;}
+.price-row{display:flex;align-items:baseline;gap:10px;margin-top:2px;flex-wrap:wrap;}
 .price{font-size:1.15rem;font-weight:700;color:var(--gold-light);font-family:var(--font-display);}
 .price-old{font-size:.85rem;color:var(--text-muted);text-decoration:line-through;}
 
@@ -268,6 +277,7 @@ nav.main-nav a:hover,nav.main-nav a.active{color:var(--gold-light);border-color:
   font-size:.8rem;font-weight:600;letter-spacing:.02em;
   display:flex;align-items:center;justify-content:center;gap:7px;
   transition:background .2s, border-color .2s, transform .15s;
+  min-width:0;
 }
 .btn-add:hover{background:var(--green-deep);border-color:var(--gold-dim);transform:translateY(-1px);}
 .btn-add:active{transform:translateY(0);}
@@ -283,6 +293,7 @@ nav.main-nav a:hover,nav.main-nav a.active{color:var(--gold-light);border-color:
 @media (max-width:1080px){.product-grid{grid-template-columns:repeat(3,1fr);}.cat-grid{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:720px){.product-grid{grid-template-columns:repeat(2,1fr);}.cat-grid{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:480px){.product-grid{grid-template-columns:1fr 1fr;gap:14px;}}
+@media (max-width:360px){.product-grid{grid-template-columns:1fr;}}
 
 /* Trust strip */
 .trust-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;}
@@ -293,7 +304,10 @@ nav.main-nav a:hover,nav.main-nav a.active{color:var(--gold-light);border-color:
 /* Promo banner (between sections) */
 .promo-banner{
   border-radius:var(--radius);overflow:hidden;position:relative;min-height:280px;
-  display:flex;align-items:center;background-size:cover;background-position:center;
+  display:flex;align-items:center;
+  background-size:cover !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
   border:1px solid var(--line);
 }
 .promo-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,15,10,.9),rgba(9,15,10,.25));}
@@ -316,6 +330,7 @@ nav.main-nav a:hover,nav.main-nav a.active{color:var(--gold-light);border-color:
 .sort-select{
   background:var(--bg-panel);border:1px solid var(--line);color:var(--cream);
   padding:9px 14px;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:.82rem;
+  max-width:100%;
 }
 .results-count{color:var(--text-muted);font-size:.82rem;}
 
@@ -337,7 +352,7 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
 .footer-brand .logo{margin-bottom:14px;}
 .footer-brand p{max-width:280px;}
 .social-row{display:flex;gap:10px;margin-top:16px;}
-.social-row a{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;}
+.social-row a{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .social-row svg{width:16px;height:16px;fill:var(--gold-light);}
 .bottom-bar{
   border-top:1px solid var(--line);padding:20px 0;display:flex;justify-content:space-between;
@@ -345,6 +360,7 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
 }
 
 @media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:520px){.footer-grid{grid-template-columns:1fr;gap:30px;}}
 
 /* =========================== CART DRAWER =========================== */
 .cart-overlay{
@@ -353,7 +369,7 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
 .cart-overlay.open{opacity:1;pointer-events:auto;}
 
 .cart-drawer{
-  position:fixed;top:0;right:0;height:100%;width:min(420px,92vw);z-index:95;
+  position:fixed;top:0;right:0;height:100%;height:100dvh;width:min(420px,92vw);z-index:95;
   background:var(--bg-panel);border-left:1px solid var(--gold-dim);
   transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);
   display:flex;flex-direction:column;box-shadow:-20px 0 50px rgba(0,0,0,.5);
@@ -370,14 +386,14 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
 .cart-item{
   display:flex;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);
 }
-.cart-item img{width:64px;height:64px;border-radius:8px;object-fit:cover;background:#0b140d;}
-.cart-item-info{flex:1;}
+.cart-item img{width:64px;height:64px;border-radius:8px;object-fit:cover;background:#0b140d;flex-shrink:0;}
+.cart-item-info{flex:1;min-width:0;}
 .cart-item-info h4{font-size:.9rem;color:var(--cream);margin:0 0 4px;font-family:var(--font-display);}
 .cart-item-info .cart-item-vol{font-size:.72rem;color:var(--text-muted);}
 .qty-row{display:flex;align-items:center;gap:10px;margin-top:8px;}
 .qty-btn{
   width:24px;height:24px;border-radius:6px;border:1px solid var(--line);background:var(--bg-panel-2);
-  color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:.9rem;
+  color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;
 }
 .qty-val{font-size:.85rem;min-width:16px;text-align:center;}
 .cart-item-price{font-size:.9rem;color:var(--gold-light);font-weight:600;white-space:nowrap;}
@@ -399,7 +415,7 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
   width:100%;background:var(--wa);color:#08380f;padding:15px;border:none;border-radius:999px;
   font-weight:700;font-size:.92rem;display:flex;align-items:center;justify-content:center;gap:10px;
 }
-.wa-checkout-btn svg{width:19px;height:19px;fill:#08380f;}
+.wa-checkout-btn svg{width:19px;height:19px;fill:#08380f;flex-shrink:0;}
 .wa-checkout-btn:hover{filter:brightness(1.06);}
 
 /* Floating WhatsApp button */
@@ -417,9 +433,10 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
 
 /* Toast */
 .toast{
-  position:fixed;bottom:96px;right:24px;z-index:97;background:var(--gold);color:#1a1206;
-  padding:12px 20px;border-radius:999px;font-size:.82rem;font-weight:600;
+  position:fixed;bottom:96px;right:24px;left:24px;z-index:97;background:var(--gold);color:#1a1206;
+  padding:12px 20px;border-radius:999px;font-size:.82rem;font-weight:600;text-align:center;
   transform:translateY(20px);opacity:0;transition:.3s;pointer-events:none;
+  margin:0 auto;max-width:360px;
 }
 .toast.show{transform:translateY(0);opacity:1;}
 
@@ -431,7 +448,7 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
 .modal-overlay.open{opacity:1;pointer-events:auto;}
 .modal-box{
   background:var(--bg-panel);border:1px solid var(--gold-dim);border-radius:var(--radius);
-  max-width:420px;width:100%;padding:30px;
+  max-width:420px;width:100%;padding:30px;max-height:90vh;overflow-y:auto;
 }
 .modal-box h3{color:var(--cream);margin-bottom:6px;}
 .modal-box p{color:var(--text-muted);font-size:.85rem;margin-bottom:20px;}
@@ -442,129 +459,12 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
   padding:11px 13px;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:.88rem;
 }
 .form-field textarea{resize:vertical;min-height:70px;}
-.modal-actions{display:flex;gap:10px;margin-top:20px;}
+.modal-actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
 .modal-actions .btn-outline{flex:1;text-align:center;justify-content:center;}
 .modal-actions .wa-checkout-btn{flex:1.4;}
 
-/* Mobile nav */
-@media (max-width:920px){
-  nav.main-nav{
-    position:fixed;top:73px;left:0;right:0;bottom:0;background:var(--bg);
-    flex-direction:column;padding:30px 24px;gap:4px;transform:translateX(-100%);
-    transition:transform .3s;z-index:59;
-  }
-  nav.main-nav.open{transform:translateX(0);}
-  nav.main-nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:1rem;}
-  .search-box{display:none;}
-  .nav-toggle{display:flex;}
-  .header-row {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 12px 16px !important;
-    width: 100% !important;
-    gap: 10px !important;
-  }
-
-  /* Menu button aur Logo ka spacing */
-  .logo {
-    margin-right: auto !important;
-    margin-left: 8px !important;
-  }
-
-  /* Right-side ke icons (WhatsApp & Cart) ke darmiyan gap */
-  .header-actions {
-    display: flex !important;
-    align-items: center !important;
-    gap: 12px !important;
-  }
-
-  /* Green WhatsApp Button ka exact circular/rounded size */
-  .wa-quick-btn {
-    padding: 0 !important;
-    width: 38px !important;
-    height: 38px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border-radius: 50% !important;
-    flex-shrink: 0 !important;
-  }
-
-  .wa-quick-btn span {
-    display: none !important; /* Text hide karke icon ko clean center kiya hai */
-  }
-
-  .wa-quick-btn svg {
-    width: 20px !important;
-    height: 20px !important;
-  }
-
-  /* Cart button ki size uniformity */
-  .icon-btn {
-    width: 38px !important;
-    height: 38px !important;
-    flex-shrink: 0 !important;
-  }
-}
-/* ============ FORCE NAVBAR FIX FOR MOBILE ============ */
-@media screen and (max-width: 920px) {
-  header.site-header .header-row {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-    padding: 12px 16px !important;
-  }
-
-  /* Hamburger menu ko sabse left rakhega */
-  header.site-header .nav-toggle {
-    display: flex !important;
-    margin-right: 0 !important;
-    flex-shrink: 0 !important;
-  }
-
-  /* Logo ko baki space ke sath right pushing space dega */
-  header.site-header .logo {
-    margin-left: 10px !important;
-    margin-right: auto !important; /* Ye icons ko right par dhakelega */
-  }
-
-  /* Right Side Buttons Box */
-  header.site-header .header-actions {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    margin-left: auto !important;
-  }
-
-  /* WhatsApp button exact round shape */
-  header.site-header .wa-quick-btn {
-    padding: 0 !important;
-    width: 38px !important;
-    height: 38px !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  header.site-header .wa-quick-btn span {
-    display: none !important;
-  }
-
-  /* Cart icon size adjustment */
-  header.site-header .icon-btn {
-    width: 38px !important;
-    height: 38px !important;
-  }
-}
-
 /* =========================================================
-   🆕 NAYA CODE — Customer Reviews (WhatsApp screenshots)
-   Purani file ka koi bhi rule yahan tak nahi chheda gaya —
-   ye sab neeche add kiya gaya hai.
+   Customer Reviews (WhatsApp screenshots)
    ========================================================= */
 .reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
 .review-card{
@@ -572,66 +472,19 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
   overflow:hidden;transition:transform .25s,box-shadow .25s;
 }
 .review-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
-.review-card img{width:100%;height:320px;object-fit:contain;object-position:center;display:block;}
-
+.review-card img{width:100%;height:320px;object-fit:contain;object-position:center;display:block;cursor:pointer;}
 
 @media (max-width:1080px){
   .reviews-grid{grid-template-columns:repeat(2,1fr);}
 }
 @media (max-width:600px){
   .reviews-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto;}
+  .review-card img{height:auto;max-height:400px;}
 }
 
 /* =========================================================
-   🆕 NAYA CODE — Extra mobile-responsive polish
-   Ye sab ADDITIONAL rules hain, purani responsive settings
-   (jo file mein pehle se maujood thin) bilkul waisi hi rahi
-   hain — kuch bhi overwrite/delete nahi kiya gaya.
+   Review Image Lightbox
    ========================================================= */
-
-/* Chhoti tablets/bade phones (581px-768px): grids ko thoda aur behtar spacing */
-@media (max-width:768px){
-  .header-row{gap:14px;padding:14px 16px;}
-  .logo-text b{font-size:1.15rem;}
-  .logo-text span{font-size:.56rem;}
-  .promo-inner{max-width:100%;}
-  .section-head{gap:12px;}
-}
-
-/* Chhote phones (480px se neeche): sab se zaroori fixes */
-@media (max-width:480px){
-  .topbar .container{flex-direction: column !important;
-    gap: 4px !important;
-    padding: 8px 16px !important;
-    text-align: center !important;}
-  .header-row{padding:12px 14px;}
-  .wa-quick-btn span{display:none;}
-  .wa-quick-btn{padding:10px;width:40px;height:40px;justify-content:center;}
-  .wa-quick-btn svg{width:18px;height:18px;}
-  .hero-content{padding:0 16px;}
-  .hero-content h1{font-size:1.9rem;}
-  .hero-content p{font-size:.92rem;}
-  .hero-ctas .btn{flex:1;justify-content:center;text-align:center;}
-  .promo-inner{padding:20px;}
-  .promo-inner h2{font-size:1.4rem;}
-  .container{padding:0 16px;}
-  .section{padding:44px 0;}
-  .modal-box{padding:20px;}
-}
-
-/* Bahut chhote phones (360px se neeche — jaise purane/entry-level devices) */
-@media (max-width:360px){
-  .logo-text{display:none;}
-  .hero-content h1{font-size:1.6rem;}
-  .btn{padding:12px 18px;font-size:.8rem;}
-}
-
-/* =========================================================
-   🆕 NAYA CODE — Review Image Lightbox
-   Click karne par review screenshot bade size mein khulti hai.
-   Kuch bhi purana yahan tak touch nahi hua.
-   ========================================================= */
-.review-card img{cursor:pointer;}
 .lightbox-overlay{
   position:fixed;inset:0;background:rgba(6,10,7,.92);z-index:99;
   display:flex;align-items:center;justify-content:center;
@@ -652,35 +505,111 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
   .lightbox-overlay{padding:14px;}
   .lightbox-close{top:12px;right:12px;width:38px;height:38px;}
 }
-/* ============ FORCE MOBILE NAV DISPLAY ============ */
-@media screen and (max-width: 920px) {
-  header.site-header {
-    position: relative !important;
+
+/* =========================================================
+   RESPONSIVE — single, non-conflicting set of breakpoints.
+   Everything mobile-nav related lives ONLY here, so there is
+   no more fighting between duplicate rules.
+   ========================================================= */
+
+/* ---- Tablet & below: shrink hero side padding, tighten header ---- */
+@media (max-width:1080px){
+  .hero-content{padding:0 24px 0 90px;}
+}
+
+@media (max-width:920px){
+  .hero-content{padding:0 40px;}
+  .hero{min-height:66vh;}
+
+  .header-row{
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    padding:12px 16px;
+    gap:10px;
   }
 
-  /* Default state: Menu background solid aur hidden rahega */
-  #mainNav {
-    display: none !important;
-    position: absolute !important;
-    top: 100% !important;
-    left: 0 !important;
-    width: 100% !important;
-    background: #0c1610 !important; /* Solid dark background */
-    padding: 10px 20px !important;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.8) !important;
-    z-index: 99999 !important;
-    flex-direction: column !important;
-  }
+  .nav-toggle{ display:flex; }
+  .logo{ margin-left:4px; margin-right:auto; }
+  .search-box{ display:none; }
 
-  /* Toggle hone par dikhai dega */
-  #mainNav.open {
-    display: flex !important;
+  .header-actions{
+    display:flex; align-items:center; gap:10px; margin-left:auto;
   }
+  .wa-quick-btn{
+    padding:0; width:38px; height:38px;
+    justify-content:center; border-radius:50%;
+  }
+  .wa-quick-btn span{ display:none; }
+  .wa-quick-btn svg{ width:20px; height:20px; }
+  .icon-btn{ width:38px; height:38px; }
 
-  #mainNav a {
-    display: block !important;
-    padding: 12px 0 !important;
-    color: #f3ecd9 !important;
-    border-bottom: 1px solid rgba(201, 162, 74, 0.2) !important;
+  /* Dropdown mobile menu — ONE definition, no duplicates */
+  header.site-header{ position:sticky; } /* sticky already creates its own containing block for the absolute child below */
+  nav.main-nav{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:#0c1610;
+    padding:10px 20px 20px;
+    box-shadow:0 10px 20px rgba(0,0,0,.8);
+    z-index:59;
+    flex-direction:column;
+    gap:0;
   }
+  nav.main-nav.open{ display:flex; }
+  nav.main-nav a{
+    display:block;
+    padding:14px 0;
+    color:#f3ecd9;
+    border-bottom:1px solid rgba(201,162,74,.2);
+    font-size:1rem;
+  }
+}
+
+/* ---- Small tablets / large phones ---- */
+@media (max-width:768px){
+  .header-row{gap:14px;padding:14px 16px;}
+  .logo-text b{font-size:1.15rem;}
+  .logo-text span{font-size:.56rem;}
+  .promo-inner{max-width:100%;}
+  .section-head{gap:12px;}
+  .cat-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+/* ---- Phones ---- */
+@media (max-width:480px){
+  .topbar .container{
+    flex-direction:column;
+    gap:4px;
+    padding:8px 16px;
+    text-align:center;
+  }
+  .header-row{padding:12px 14px;}
+  .wa-quick-btn span{display:none;}
+  .wa-quick-btn{padding:10px;width:40px;height:40px;justify-content:center;}
+  .wa-quick-btn svg{width:18px;height:18px;}
+  .hero-content{padding:0 16px;}
+  .hero-content h1{font-size:1.9rem;}
+  .hero-content p{font-size:.92rem;}
+  .hero-ctas .btn{flex:1;justify-content:center;text-align:center;}
+  .promo-inner{padding:20px;}
+  .promo-inner h2{font-size:1.4rem;}
+  .container{padding:0 16px;}
+  .section{padding:44px 0;}
+  .modal-box{padding:20px;}
+  .footer-grid{gap:30px;}
+  .trust-strip .container{justify-content:center;text-align:center;}
+}
+
+/* ---- Very small phones (old/entry-level devices) ---- */
+@media (max-width:360px){
+  .logo-text{display:none;}
+  .hero-content h1{font-size:1.6rem;}
+  .btn{padding:12px 18px;font-size:.8rem;}
+  .cat-grid{grid-template-columns:1fr;}
 }
