@@ -515,13 +515,17 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
   .lightbox-close{top:12px;right:12px;width:38px;height:38px;}
 }
 
+
+
+
+
+
 /* =========================================================
    SINGLE CLEAN MOBILE NAV & HEADER FIX (920px & BELOW)
    ========================================================= */
 @media screen and (max-width: 920px) {
   header.site-header {
-    position: sticky !important;
-    top: 0 !important;
+    position: relative !important; /* Fixed menu ko header ke exact niche align karne ke liye */
     z-index: 1000 !important;
   }
 
@@ -593,15 +597,15 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
     height: 38px !important;
   }
 
-  /* Full Screen Overlay Navigation */
+  /* Full Screen Overlay Navigation — Fixed positioning to start right below the header */
   header.site-header nav.main-nav {
-    position: fixed !important;
-    top: 60px !important;
+    position: absolute !important;
+    top: 100% !important; /* Header aur 3-lines icon ke bilkul neeche se start hoga */
     left: 0 !important;
     right: 0 !important;
-    bottom: 0 !important;
     width: 100vw !important;
-    height: calc(100vh - 60px) !important;
+    height: calc(100vh - 100%) !important;
+    min-height: 100vh !important;
     background-color: #0e1a12 !important;
     display: none !important;
     flex-direction: column !important;
