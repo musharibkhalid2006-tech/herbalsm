@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HERBA L·S·M — Natural & Herbal Hair Care</title>
-<meta name="description" content="HERBA L.S.M — 100% natural herbal shampoo & hair oil. Sulphate, paraben & silicone free. Order via WhatsApp, cash on delivery.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HERBA L·S·M — Natural & Herbal Hair Care</title>
+  <meta name="description" content="HERBA L.S.M — 100% natural herbal shampoo & hair oil. Sulphate, paraben & silicone free. Order via WhatsApp, cash on delivery.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -22,7 +22,7 @@
 <!-- ============ HEADER ============ -->
 <header class="site-header">
   <div class="header-row container">
-    <button class="nav-toggle" id="navToggle" aria-label="Menu kholein" onclick="document.getElementById('mainNav').classList.toggle('open')">
+    <button class="nav-toggle" id="navToggle" aria-label="Menu kholein" onclick="document.getElementById('mainNav').classList.toggle('open'); document.getElementById('mainNav').classList.toggle('active');">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
 
@@ -35,12 +35,12 @@
     </a>
 
     <nav class="main-nav" id="mainNav">
-      <a href="index.html" class="active" onclick="document.getElementById('mainNav').classList.remove('open')">Home</a>
-      <a href="products.html" onclick="document.getElementById('mainNav').classList.remove('open')">Shop All</a>
-      <a href="products.html?cat=hair-oils" onclick="document.getElementById('mainNav').classList.remove('open')">Hair Oils</a>
-      <a href="products.html?cat=shampoo" onclick="document.getElementById('mainNav').classList.remove('open')">Shampoos</a>
-      <a href="index.html#about" onclick="document.getElementById('mainNav').classList.remove('open')">About</a>
-      <a href="index.html#contact" onclick="document.getElementById('mainNav').classList.remove('open')">Contact</a>
+      <a href="index.html" class="active" onclick="document.getElementById('mainNav').classList.remove('open', 'active')">Home</a>
+      <a href="products.html" onclick="document.getElementById('mainNav').classList.remove('open', 'active')">Shop All</a>
+      <a href="products.html?cat=hair-oils" onclick="document.getElementById('mainNav').classList.remove('open', 'active')">Hair Oils</a>
+      <a href="products.html?cat=shampoo" onclick="document.getElementById('mainNav').classList.remove('open', 'active')">Shampoos</a>
+      <a href="index.html#about" onclick="document.getElementById('mainNav').classList.remove('open', 'active')">About</a>
+      <a href="index.html#contact" onclick="document.getElementById('mainNav').classList.remove('open', 'active')">Contact</a>
     </nav>
 
     <div class="search-box">
@@ -59,7 +59,7 @@
       </button>
     </div>
   </div>
-</header>  
+</header>
 
 <!-- ============ HERO SLIDER ============ -->
 <section class="hero">
