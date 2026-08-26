@@ -145,15 +145,23 @@ nav.main-nav a:hover,nav.main-nav a.active{color:var(--gold-light);border-color:
   min-height:78vh;display:flex;align-items:center;
   background:radial-gradient(ellipse at 75% 50%, rgba(124,22,56,.18), transparent 60%), var(--bg);
 }
-.hero-slides{position:absolute;inset:0;}
-.hero-slide{
-  position:absolute;
-  inset:0;
-  background-size:cover !important;
-  background-position:center !important;
-  background-repeat:no-repeat !important;
-  opacity:0;
-  transition:opacity 1.1s ease;
+.hero-slides {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  opacity: 0;
+  transition: opacity 1.1s ease;
 }
 .hero-slide.active{opacity:1;}
 .hero-slide::after{
@@ -291,13 +299,17 @@ nav.main-nav a:hover,nav.main-nav a.active{color:var(--gold-light);border-color:
 .trust-item svg{width:22px;height:22px;fill:var(--gold);flex-shrink:0;}
 
 /* Promo banner (between sections) */
-.promo-banner{
-  border-radius:var(--radius);overflow:hidden;position:relative;min-height:280px;
-  display:flex;align-items:center;
-  background-size:cover !important;
-  background-position:center !important;
-  background-repeat:no-repeat !important;
-  border:1px solid var(--line);
+.promo-banner {
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid var(--line);
 }
 .promo-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,15,10,.9),rgba(9,15,10,.25));}
 .promo-banner .promo-inner{position:relative;z-index:2;padding:40px;max-width:480px;}
@@ -514,34 +526,42 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
 }
 
 /* Chhote phones (480px se neeche): sab se zaroori fixes */
-@media (max-width:480px){
-  /* Topbar Fix */
-  .topbar .container{flex-direction:column;gap:4px;padding:6px 16px;text-align:center;font-size:.72rem;}
-  
-  /* Header & Navbar Clean Alignment */
-  .header-row{padding:10px 14px;gap:8px;justify-content:space-between;}
-  .logo{gap:6px;}
-  .logo svg{width:28px;height:28px;}
-  .logo-text b{font-size:1.1rem;}
-  .logo-text span{font-size:.52rem;}
-  .header-actions{gap:8px;}
-  .wa-quick-btn{display:none;} /* Hidden on small screens to remove header clutter */
-  
-  /* Hero Image & Spacing Fix */
-  .hero{min-height:60vh;padding:30px 0;}
-  .hero-slide{background-size:cover !important;background-position:center !important;background-repeat:no-repeat !important;}
-  .hero-content{padding:0 16px;}
-  .hero-content h1{font-size:1.8rem;line-height:1.2;}
-  .hero-content p{font-size:.88rem;margin-bottom:20px;}
-  .hero-ctas{flex-direction:column;gap:10px;width:100%;}
-  .hero-ctas .btn{width:100%;justify-content:center;text-align:center;}
+@media (max-width: 600px) {
+  /* Navbar spacing */
+  .header-row {
+    padding: 10px 12px;
+  }
+  .logo-text b {
+    font-size: 1.05rem;
+  }
 
-  /* General Containers */
-  .promo-inner{padding:20px;}
-  .promo-inner h2{font-size:1.4rem;}
-  .container{padding:0 16px;}
-  .section{padding:40px 0;}
-  .modal-box{padding:20px;}
+  /* Hero Section Height & Fit */
+  .hero {
+    min-height: 55vh;
+    padding: 24px 0;
+  }
+  .hero-content h1 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+  .hero-content p {
+    font-size: 0.88rem;
+  }
+
+  /* Image repeats blocked strictly */
+  .hero-slide, 
+  .promo-banner {
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+  }
+
+  .promo-inner {
+    padding: 20px 16px;
+  }
+  .product-card .card-img {
+    height: 180px;
+  }
 }
 
 /* Bahut chhote phones (360px se neeche — jaise purane/entry-level devices) */
