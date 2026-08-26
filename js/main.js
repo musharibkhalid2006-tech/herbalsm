@@ -307,3 +307,28 @@ function closeLightbox(){
 document.addEventListener("keydown", e => {
   if(e.key === "Escape") closeLightbox();
 });
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.getElementById('navToggle');
+  const mainNav = document.getElementById('mainNav');
+
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mainNav.classList.toggle('open');
+      navToggle.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+        mainNav.classList.remove('open');
+      }
+    });
+  }
+});
