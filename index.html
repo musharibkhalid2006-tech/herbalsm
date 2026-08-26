@@ -19,11 +19,10 @@
   </div>
 </div>
 
-
 <!-- ============ HEADER ============ -->
 <header class="site-header">
   <div class="header-row container">
-    <button class="nav-toggle" id="navToggle" aria-label="Menu kholein">
+    <button class="nav-toggle" id="navToggle" aria-label="Menu kholein" onclick="document.getElementById('mainNav').classList.toggle('open')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
 
@@ -36,12 +35,12 @@
     </a>
 
     <nav class="main-nav" id="mainNav">
-      <a href="index.html" class="active">Home</a>
-      <a href="products.html">Shop All</a>
-      <a href="products.html?cat=hair-oils">Hair Oils</a>
-      <a href="products.html?cat=shampoo">Shampoos</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="index.html" class="active" onclick="document.getElementById('mainNav').classList.remove('open')">Home</a>
+      <a href="products.html" onclick="document.getElementById('mainNav').classList.remove('open')">Shop All</a>
+      <a href="products.html?cat=hair-oils" onclick="document.getElementById('mainNav').classList.remove('open')">Hair Oils</a>
+      <a href="products.html?cat=shampoo" onclick="document.getElementById('mainNav').classList.remove('open')">Shampoos</a>
+      <a href="index.html#about" onclick="document.getElementById('mainNav').classList.remove('open')">About</a>
+      <a href="index.html#contact" onclick="document.getElementById('mainNav').classList.remove('open')">Contact</a>
     </nav>
 
     <div class="search-box">
@@ -61,6 +60,7 @@
     </div>
   </div>
 </header>  
+
 <!-- ============ HERO SLIDER ============ -->
 <section class="hero">
   <div class="seal">
@@ -299,7 +299,7 @@
       </div>
       <div class="form-field">
         <label for="custAddress">Delivery Address</label>
-        <textarea id="custAddress" placeholder="House/Flat No, Street, Area" Required></textarea>
+        <textarea id="custAddress" placeholder="House/Flat No, Street, Area" required></textarea>
       </div>
       <div class="form-field">
         <label for="custNotes">Note (optional)</label>
@@ -316,7 +316,7 @@
   </div>
 </div>
 
-<!-- ============ 🆕 NAYA CODE — REVIEW IMAGE LIGHTBOX ============ -->
+<!-- ============ REVIEW IMAGE LIGHTBOX ============ -->
 <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
