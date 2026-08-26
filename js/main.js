@@ -1,8 +1,8 @@
 /* =========================================================
-   HERBA · L·S·M  —  MAIN SITE LOGIC
+   HERBA · L·S·M  —  MAIN SITE LOGIC (UNIVERSAL FIX)
    ========================================================= */
 
-/* ---------- Mobile Nav Toggle (Global Function & Auto Close) ---------- */
+/* ---------- Universal Mobile Nav Toggle ---------- */
 function toggleNav() {
   const mainNav = document.getElementById('mainNav');
   const navToggle = document.getElementById('navToggle');
@@ -15,27 +15,25 @@ function toggleNav() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+// Global Click Delegation (Works on all pages without breaking)
+document.addEventListener('click', (e) => {
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
 
-  // Direct Event Listener Fallback
-  if (navToggle && mainNav) {
-    navToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      toggleNav();
-    });
+  if (!mainNav || !navToggle) return;
+
+  // Toggle button click check
+  if (navToggle.contains(e.target)) {
+    e.stopPropagation();
+    toggleNav();
+    return;
   }
 
   // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (mainNav && navToggle) {
-      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
-        mainNav.classList.remove('open', 'active');
-        navToggle.classList.remove('active');
-      }
-    }
-  });
+  if (!mainNav.contains(e.target) && mainNav.classList.contains('open')) {
+    mainNav.classList.remove('open', 'active');
+    navToggle.classList.remove('active');
+  }
 });
 
 /* ---------- Hero Slider ---------- */
@@ -71,6 +69,7 @@ function initHeroSlider(){
 
 /* ---------- Product Card Template ---------- */
 function productCardHTML(p){
+  const storeCurrency = (typeof STORE !== "undefined" && STORE.currency) ? STORE.currency : "Rs. ";
   const discount = p.oldPrice ? Math.round(100 - (p.price / p.oldPrice * 100)) : null;
   return `
   <div class="product-card" data-cat="${p.category}">
@@ -89,8 +88,8 @@ function productCardHTML(p){
       <h3 class="product-title">${p.title}</h3>
       <span class="product-vol">${p.volume}</span>
       <div class="price-row">
-        <span class="price">${STORE.currency}${p.price.toLocaleString()}</span>
-        ${p.oldPrice ? `<span class="price-old">${STORE.currency}${p.oldPrice.toLocaleString()}</span>` : ""}
+        <span class="price">${storeCurrency}${p.price.toLocaleString()}</span>
+        ${p.oldPrice ? `<span class="price-old">${storeCurrency}${p.oldPrice.toLocaleString()}</span>` : ""}
       </div>
       <div class="product-actions">
         <button class="btn-add" data-id="${p.id}" onclick="addToCart('${p.id}')">
@@ -152,7 +151,7 @@ function getFilteredProducts(){
     list = list.filter(p =>
       p.title.toLowerCase().includes(q) ||
       p.categoryLabel.toLowerCase().includes(q) ||
-      p.tags.some(t => t.toLowerCase().includes(q))
+      (p.tags && p.tags.some(t => t.toLowerCase().includes(q)))
     );
   }
   if(activeSort === "price-asc") list.sort((a,b) => a.price - b.price);
@@ -308,13 +307,14 @@ function initScrollSpy(){
   });
 }
 
-/* ---------- Init Everything ---------- */
+/* ---------- Safe Initialization ---------- */
 document.addEventListener("DOMContentLoaded", () => {
-  initHeroSlider();
-  renderHomepage();
-  initListingControls();
+  if (document.querySelector(".hero-slide")) initHeroSlider();
+  if (document.getElementById("categoryGrid")) renderHomepage();
+  if (document.getElementById("listingGrid")) initListingControls();
+  
   initNavHighlight();
-  initScrollSpy();
+  if (document.getElementById("about")) initScrollSpy();
 
   document.getElementById("cartOverlay")?.addEventListener("click", () => {
     if(typeof closeCart === "function") closeCart();
@@ -322,21 +322,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.getElementById("orderForm");
   if(form) form.addEventListener("submit", submitOrderForm);
-});
-
-/* ---------- Lightbox Logic ---------- */
-function openLightbox(src){
-  const overlay = document.getElementById("lightboxOverlay");
-  const img = document.getElementById("lightboxImg");
-  if(!overlay || !img) return;
-  img.src = src;
-  overlay.classList.add("open");
-}
-
-function closeLightbox(){
-  document.getElementById("lightboxOverlay")?.classList.remove("open");
-}
-
-document.addEventListener("keydown", e => {
-  if(e.key === "Escape") closeLightbox();
 });
