@@ -3,12 +3,23 @@
    ========================================================= */
 
 /* ---------- Mobile Nav Toggle ---------- */
-function toggleNav() {
-  const nav = document.getElementById("mainNav");
-  if (nav) {
-    nav.classList.toggle("open");
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.getElementById('navToggle');
+  const mainNav = document.getElementById('mainNav');
+
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mainNav.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+        mainNav.classList.remove('open');
+      }
+    });
   }
-}
+});
 
 /* ---------- Hero Slider ---------- */
 let heroIndex = 0;
