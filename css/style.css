@@ -652,33 +652,34 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
   .lightbox-overlay{padding:14px;}
   .lightbox-close{top:12px;right:12px;width:38px;height:38px;}
 }
-/* Exact Home Page WhatsApp Button Style */
-.wa-quick-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: #25d366;
-  color: #ffffff !important;
-  padding: 8px 16px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 14px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.wa-quick-btn svg {
-  width: 18px;
-  height: 18px;
-  fill: #ffffff;
-}
-
-@media (max-width: 920px) {
-  .wa-quick-btn span {
-    display: none;
+/* FINAL FIX FOR MOBILE WHATSAPP BUTTON */
+@media screen and (max-width: 920px) {
+  .site-header a.wa-quick-btn span,
+  .header-actions a.wa-quick-btn span {
+    display: none !important;
+    visibility: hidden !important;
+    font-size: 0 !important;
   }
-  .wa-quick-btn {
-    padding: 8px;
-    border-radius: 50%;
+
+  .site-header a.wa-quick-btn,
+  .header-actions a.wa-quick-btn {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    background-color: #25d366 !important;
+  }
+
+  .site-header a.wa-quick-btn svg,
+  .header-actions a.wa-quick-btn svg {
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 !important;
+    fill: #ffffff !important;
   }
 }
