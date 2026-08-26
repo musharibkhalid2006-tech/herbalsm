@@ -2,7 +2,7 @@
    HERBA · L·S·M  —  MAIN SITE LOGIC
    ========================================================= */
 
-/* ---------- Mobile nav ---------- */
+/* ---------- Mobile Nav Toggle ---------- */
 function toggleNav() {
   const nav = document.getElementById("mainNav");
   if (nav) {
@@ -10,7 +10,7 @@ function toggleNav() {
   }
 }
 
-/* ---------- Hero slider ---------- */
+/* ---------- Hero Slider ---------- */
 let heroIndex = 0;
 let heroTimer;
 function initHeroSlider(){
@@ -41,7 +41,7 @@ function initHeroSlider(){
   resetHeroTimer();
 }
 
-/* ---------- Product card template ---------- */
+/* ---------- Product Card Template ---------- */
 function productCardHTML(p){
   const discount = p.oldPrice ? Math.round(100 - (p.price / p.oldPrice * 100)) : null;
   return `
@@ -89,7 +89,7 @@ function categoryCardHTML(c){
   </a>`;
 }
 
-/* ---------- Render: homepage sections ---------- */
+/* ---------- Homepage Render ---------- */
 function renderHomepage(){
   const catWrap = document.getElementById("categoryGrid");
   if(catWrap) catWrap.innerHTML = CATEGORIES.map(categoryCardHTML).join("");
@@ -107,7 +107,7 @@ function renderHomepage(){
   }
 }
 
-/* ---------- Render: product listing page with filters/search ---------- */
+/* ---------- Product Listing & Search ---------- */
 let activeFilter = "all";
 let activeSort = "default";
 let searchTerm = "";
@@ -138,8 +138,10 @@ function renderListingPage(){
   if(!wrap) return;
   const list = getFilteredProducts();
 
-  document.getElementById("resultsCount").textContent =
-    `${list.length} product${list.length !== 1 ? "s" : ""} mile`;
+  const countElem = document.getElementById("resultsCount");
+  if(countElem) {
+    countElem.textContent = `${list.length} product${list.length !== 1 ? "s" : ""} mile`;
+  }
 
   wrap.innerHTML = list.length
     ? list.map(productCardHTML).join("")
@@ -193,16 +195,16 @@ function initListingControls(){
   renderListingPage();
 }
 
-/* ---------- Order modal ---------- */
+/* ---------- Order Modal ---------- */
 function openOrderModal(){
   if(getCart().length === 0){
     showToast("Your cart is empty — please add products before checking out.");
     return;
   }
-  document.getElementById("orderModal").classList.add("open");
+  document.getElementById("orderModal")?.classList.add("open");
 }
 function closeOrderModal(){
-  document.getElementById("orderModal").classList.remove("open");
+  document.getElementById("orderModal")?.classList.remove("open");
 }
 function submitOrderForm(e){
   e.preventDefault();
@@ -275,7 +277,7 @@ function initScrollSpy(){
   });
 }
 
-/* ---------- Init everything ---------- */
+/* ---------- Init Everything ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   initHeroSlider();
   renderHomepage();
@@ -289,9 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if(form) form.addEventListener("submit", submitOrderForm);
 });
 
-/* =========================================================
-   🆕 Review Image Lightbox
-   ========================================================= */
+/* ---------- Lightbox Logic ---------- */
 function openLightbox(src){
   const overlay = document.getElementById("lightboxOverlay");
   const img = document.getElementById("lightboxImg");
