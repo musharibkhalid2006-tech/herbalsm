@@ -2,43 +2,15 @@
    HERBA · L·S·M  —  MAIN SITE LOGIC
    ========================================================= */
 
-/* ---------- Mobile Nav Toggle (Global Function & Auto Close) ---------- */
+/* ---------- Mobile nav ---------- */
 function toggleNav() {
-  const mainNav = document.getElementById('mainNav');
-  const navToggle = document.getElementById('navToggle');
-  if (mainNav) {
-    mainNav.classList.toggle('open');
-    mainNav.classList.toggle('active');
-  }
-  if (navToggle) {
-    navToggle.classList.toggle('active');
+  const nav = document.getElementById("mainNav");
+  if (nav) {
+    nav.classList.toggle("open");
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const navToggle = document.getElementById('navToggle');
-  const mainNav = document.getElementById('mainNav');
-
-  // Direct Event Listener Fallback
-  if (navToggle && mainNav) {
-    navToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      toggleNav();
-    });
-  }
-
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (mainNav && navToggle) {
-      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
-        mainNav.classList.remove('open', 'active');
-        navToggle.classList.remove('active');
-      }
-    }
-  });
-});
-
-/* ---------- Hero Slider ---------- */
+/* ---------- Hero slider ---------- */
 let heroIndex = 0;
 let heroTimer;
 function initHeroSlider(){
@@ -69,7 +41,7 @@ function initHeroSlider(){
   resetHeroTimer();
 }
 
-/* ---------- Product Card Template ---------- */
+/* ---------- Product card template ---------- */
 function productCardHTML(p){
   const discount = p.oldPrice ? Math.round(100 - (p.price / p.oldPrice * 100)) : null;
   return `
@@ -117,31 +89,30 @@ function categoryCardHTML(c){
   </a>`;
 }
 
-/* ---------- Homepage Render ---------- */
+/* ---------- Render: homepage sections ---------- */
 function renderHomepage(){
   const catWrap = document.getElementById("categoryGrid");
-  if(catWrap && typeof CATEGORIES !== "undefined") catWrap.innerHTML = CATEGORIES.map(categoryCardHTML).join("");
+  if(catWrap) catWrap.innerHTML = CATEGORIES.map(categoryCardHTML).join("");
 
   const featuredWrap = document.getElementById("featuredGrid");
-  if(featuredWrap && typeof PRODUCTS !== "undefined"){
+  if(featuredWrap){
     const featured = PRODUCTS.slice(0, 4);
     featuredWrap.innerHTML = featured.map(productCardHTML).join("");
   }
 
   const bestWrap = document.getElementById("bestsellerGrid");
-  if(bestWrap && typeof PRODUCTS !== "undefined"){
+  if(bestWrap){
     const best = PRODUCTS.filter(p => p.badge === "Best Seller");
     bestWrap.innerHTML = best.map(productCardHTML).join("");
   }
 }
 
-/* ---------- Product Listing & Search ---------- */
+/* ---------- Render: product listing page with filters/search ---------- */
 let activeFilter = "all";
 let activeSort = "default";
 let searchTerm = "";
 
 function getFilteredProducts(){
-  if(typeof PRODUCTS === "undefined") return [];
   let list = [...PRODUCTS];
 
   if(activeFilter !== "all"){
@@ -167,10 +138,8 @@ function renderListingPage(){
   if(!wrap) return;
   const list = getFilteredProducts();
 
-  const countElem = document.getElementById("resultsCount");
-  if(countElem) {
-    countElem.textContent = `${list.length} product${list.length !== 1 ? "s" : ""} mile`;
-  }
+  document.getElementById("resultsCount").textContent =
+    `${list.length} product${list.length !== 1 ? "s" : ""} mile`;
 
   wrap.innerHTML = list.length
     ? list.map(productCardHTML).join("")
@@ -224,16 +193,16 @@ function initListingControls(){
   renderListingPage();
 }
 
-/* ---------- Order Modal ---------- */
+/* ---------- Order modal ---------- */
 function openOrderModal(){
-  if(typeof getCart === "function" && getCart().length === 0){
+  if(getCart().length === 0){
     showToast("Your cart is empty — please add products before checking out.");
     return;
   }
-  document.getElementById("orderModal")?.classList.add("open");
+  document.getElementById("orderModal").classList.add("open");
 }
 function closeOrderModal(){
-  document.getElementById("orderModal")?.classList.remove("open");
+  document.getElementById("orderModal").classList.remove("open");
 }
 function submitOrderForm(e){
   e.preventDefault();
@@ -243,9 +212,7 @@ function submitOrderForm(e){
     address: document.getElementById("custAddress").value.trim(),
     notes: document.getElementById("custNotes").value.trim(),
   };
-  if(typeof sendOrderToWhatsApp === "function") {
-    sendOrderToWhatsApp(customer);
-  }
+  sendOrderToWhatsApp(customer);
   closeOrderModal();
 }
 
@@ -308,7 +275,7 @@ function initScrollSpy(){
   });
 }
 
-/* ---------- Init Everything ---------- */
+/* ---------- Init everything ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   initHeroSlider();
   renderHomepage();
@@ -316,15 +283,15 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavHighlight();
   initScrollSpy();
 
-  document.getElementById("cartOverlay")?.addEventListener("click", () => {
-    if(typeof closeCart === "function") closeCart();
-  });
+  document.getElementById("cartOverlay")?.addEventListener("click", closeCart);
 
   const form = document.getElementById("orderForm");
   if(form) form.addEventListener("submit", submitOrderForm);
 });
 
-/* ---------- Lightbox Logic ---------- */
+/* =========================================================
+   🆕 Review Image Lightbox
+   ========================================================= */
 function openLightbox(src){
   const overlay = document.getElementById("lightboxOverlay");
   const img = document.getElementById("lightboxImg");
