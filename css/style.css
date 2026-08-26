@@ -1434,6 +1434,7 @@ footer {
     height: 36px !important;
   }
 
+  /* Default Hidden State (without !important on display) */
   header.site-header nav.main-nav {
     position: fixed !important;
     top: 60px !important;
@@ -1442,7 +1443,7 @@ footer {
     width: 100% !important;
     height: calc(100vh - 60px) !important;
     background-color: #0e1a12 !important;
-    display: none !important;
+    display: none;
     flex-direction: column !important;
     padding: 20px 24px !important;
     gap: 0 !important;
@@ -1450,7 +1451,9 @@ footer {
     overflow-y: auto !important;
   }
 
-  header.site-header nav.main-nav.open {
+  /* Active/Open State */
+  header.site-header nav.main-nav.open,
+  header.site-header nav.main-nav.active {
     display: flex !important;
   }
 
