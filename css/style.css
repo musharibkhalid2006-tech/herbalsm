@@ -652,31 +652,25 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
   .lightbox-overlay{padding:14px;}
   .lightbox-close{top:12px;right:12px;width:38px;height:38px;}
 }
-/* ALL PAGES: WhatsApp Floating Button Clean Fix */
-.header-actions a[href*="wa.me"],
-.header-actions .btn-icon-wa,
-.header-actions .btn-whatsapp-float {
-  width: 40px !important;
-  height: 40px !important;
+/* Header Actions & WhatsApp Quick Button Fix */
+header.site-header .wa-quick-btn span {
+  display: none !important;
+}
+
+header.site-header .wa-quick-btn {
+  width: 38px !important;
+  height: 38px !important;
+  padding: 0 !important;
   border-radius: 50% !important;
-  display: inline-flex !important;
+  display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  overflow: hidden !important;
-  font-size: 0 !important; /* Hide any raw text nodes like "Chat Now" */
-  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  background-color: #25d366 !important;
 }
 
-.header-actions a[href*="wa.me"] *,
-.header-actions .btn-icon-wa *,
-.header-actions .btn-whatsapp-float * {
-  font-size: 0 !important;
-}
-
-.header-actions a[href*="wa.me"] svg,
-.header-actions .btn-icon-wa svg,
-.header-actions .btn-whatsapp-float svg {
-  width: 22px !important;
-  height: 22px !important;
-  display: block !important;
+header.site-header .wa-quick-btn svg {
+  width: 20px !important;
+  height: 20px !important;
+  fill: #ffffff !important;
 }
