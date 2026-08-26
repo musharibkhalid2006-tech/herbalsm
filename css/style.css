@@ -520,13 +520,16 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
 
 
 
+
 /* =========================================================
-   SINGLE CLEAN MOBILE NAV & HEADER FIX (920px & BELOW)
+   MOBILE NAV & STICKY HEADER FIX (920px & BELOW)
    ========================================================= */
 @media screen and (max-width: 920px) {
   header.site-header {
-    position: relative !important; /* Fixed menu ko header ke exact niche align karne ke liye */
+    position: sticky !important;
+    top: 0 !important;
     z-index: 1000 !important;
+    background: #0e1a12 !important;
   }
 
   header.site-header .header-row {
@@ -535,19 +538,11 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
     justify-content: space-between !important;
     align-items: center !important;
     width: 100% !important;
-    padding: 12px 16px !important;
-  }
-
-  /* Hamburger Toggle */
-  .nav-toggle {
-    display: flex !important;
-    margin-right: 0 !important;
-    flex-shrink: 0 !important;
+    padding: 10px 16px !important;
   }
 
   /* Logo adjustment */
   header.site-header .logo {
-    margin-left: 10px !important;
     margin-right: auto !important;
   }
 
@@ -555,65 +550,70 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
     display: none !important;
   }
 
-  /* Right Side Actions */
+  /* Right Actions & Hamburger Button Placement */
   header.site-header .header-actions {
     display: flex !important;
     align-items: center !important;
-    gap: 10px !important;
-    margin-left: auto !important;
+    gap: 8px !important;
   }
 
-  /* Round WhatsApp Icon Button */
+  .nav-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: none !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 8px !important;
+    padding: 7px !important;
+    color: var(--gold-light) !important;
+    z-index: 1002 !important;
+  }
+
   .site-header a.wa-quick-btn span,
   .header-actions a.wa-quick-btn span {
     display: none !important;
-    visibility: hidden !important;
   }
 
   .site-header a.wa-quick-btn,
   .header-actions a.wa-quick-btn {
-    width: 40px !important;
-    height: 40px !important;
-    min-width: 40px !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
     padding: 0 !important;
     border-radius: 50% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    overflow: hidden !important;
     background-color: #25d366 !important;
   }
 
   .site-header a.wa-quick-btn svg,
   .header-actions a.wa-quick-btn svg {
-    width: 20px !important;
-    height: 20px !important;
-    margin: 0 !important;
+    width: 18px !important;
+    height: 18px !important;
     fill: #ffffff !important;
   }
 
   header.site-header .icon-btn {
-    width: 38px !important;
-    height: 38px !important;
+    width: 36px !important;
+    height: 36px !important;
   }
 
-  /* Full Screen Overlay Navigation — Fixed positioning to start right below the header */
+  /* Mobile Dropdown Panel: Top Header ke exact neeche se open hoga */
   header.site-header nav.main-nav {
-    position: absolute !important;
-    top: 100% !important; /* Header aur 3-lines icon ke bilkul neeche se start hoga */
+    position: fixed !important;
+    top: 60px !important; /* Top bar header height offset */
     left: 0 !important;
     right: 0 !important;
     width: 100vw !important;
-    height: calc(100vh - 100%) !important;
-    min-height: 100vh !important;
+    height: calc(100vh - 60px) !important;
     background-color: #0e1a12 !important;
     display: none !important;
     flex-direction: column !important;
-    padding: 20px 24px !important;
+    padding: 16px 20px !important;
     gap: 0 !important;
     z-index: 9999 !important;
     overflow-y: auto !important;
-    transform: none !important;
   }
 
   header.site-header nav.main-nav.open {
@@ -622,9 +622,9 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
 
   header.site-header nav.main-nav a {
     display: block !important;
-    padding: 16px 8px !important;
+    padding: 14px 10px !important;
     border-bottom: 1px solid rgba(201, 162, 74, 0.2) !important;
-    font-size: 1rem !important;
+    font-size: 0.95rem !important;
     color: var(--cream) !important;
     text-align: left !important;
     width: 100% !important;
@@ -632,11 +632,5 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
 
   header.site-header nav.main-nav a:last-child {
     border-bottom: none !important;
-  }
-
-  header.site-header nav.main-nav a:hover,
-  header.site-header nav.main-nav a.active {
-    color: var(--gold-light) !important;
-    padding-left: 12px !important;
   }
 }
