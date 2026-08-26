@@ -1,288 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HERBA L·S·M — 100% Natural & Herbal Hair Care</title>
-  <meta name="description" content="HERBA L.S.M ke 100% natural aur herbal hair oils aur shampoos explore karein. Sulphate-free, chemical-free. Order via WhatsApp.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HERBA L·S·M — Natural & Herbal Hair Care</title>
+  <meta name="description" content="HERBA L.S.M — 100% natural herbal shampoo & hair oil. Sulphate, paraben & silicone free. Order via WhatsApp, cash on delivery.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <!-- ============ TOP BAR ============ -->
 <div class="topbar">
-  <div class="container">
-    <span>Free delivery on orders above Rs. 2500</span>
-    <a href="https://wa.me/923702271313" target="_blank">WhatsApp: +92 370 2271313</a>
-  </div>
+  <div class="container">
+    <span>Free delivery on orders above Rs. 2500</span>
+    <a href="https://wa.me/923702271313" target="_blank">WhatsApp: +92 3702271313</a>
+  </div>
 </div>
 
 <!-- ============ HEADER ============ -->
 <header class="site-header">
-  <div class="header-row container">
-    <button class="nav-toggle" id="navToggle" aria-label="Menu kholein">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
+  <div class="header-row container">
+    <button class="nav-toggle" id="navToggle" aria-label="Menu kholein" onclick="document.getElementById('mainNav').classList.toggle('open'); document.getElementById('mainNav').classList.toggle('active');">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
 
-    <a href="index.html" class="logo">
-      <svg viewBox="0 0 40 40" fill="none">
-        <path d="M20 4C13 10 9 16 9 22a11 11 0 0 0 22 0c0-6-4-12-11-18z" stroke="#c9a24a" stroke-width="1.6"/>
-        <path d="M20 12v20M20 18l-5 4M20 22l5 4" stroke="#c9a24a" stroke-width="1.4" stroke-linecap="round"/>
-      </svg>
-      <span class="logo-text"><b>HERBA</b><span>L · S · M</span></span>
-    </a>
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 40 40" fill="none">
+        <path d="M20 4C13 10 9 16 9 22a11 11 0 0 0 22 0c0-6-4-12-11-18z" stroke="#c9a24a" stroke-width="1.6"/>
+        <path d="M20 12v20M20 18l-5 4M20 22l5 4" stroke="#c9a24a" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-text"><b>HERBA</b><span>L · S · M</span></span>
+    </a>
 
-    <nav class="main-nav" id="mainNav">
-      <a href="index.html" class="active">Home</a>
-      <a href="products.html">Shop All</a>
-      <a href="products.html?cat=hair-oils">Hair Oils</a>
-      <a href="products.html?cat=shampoo">Shampoos</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html" class="active" onclick="document.getElementById('mainNav').classList.remove('open', 'active')">Home</a>
+      <a href="products.html" onclick="document.getElementById('mainNav').classList.remove('open', 'active')">Shop All</a>
+      <a href="products.html?cat=hair-oils" onclick="document.getElementById('mainNav').classList.remove('open', 'active')">Hair Oils</a>
+      <a href="products.html?cat=shampoo" onclick="document.getElementById('mainNav').classList.remove('open', 'active')">Shampoos</a>
+      <a href="index.html#about" onclick="document.getElementById('mainNav').classList.remove('open', 'active')">About</a>
+      <a href="index.html#contact" onclick="document.getElementById('mainNav').classList.remove('open', 'active')">Contact</a>
+    </nav>
 
-    <div class="search-box">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-      <input type="text" placeholder="Search natural hair care products..." class="site-search" onkeydown="if(event.key==='Enter'){window.location.href='products.html?q='+encodeURIComponent(this.value)}">
-    </div>
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" placeholder="Search natural hair care products..." class="site-search" onkeydown="if(event.key==='Enter'){window.location.href='products.html?q='+encodeURIComponent(this.value)}">
+    </div>
 
-    <div class="header-actions">
-      <a class="wa-quick-btn" href="https://wa.me/923702271313?text=Hello%20HERBA%20L.S.M!%20I%20would%20like%20more%20details%20about%20your%20products." target="_blank" aria-label="WhatsApp" style="width:38px; height:38px; padding:0; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:#25d366;">
-        <svg viewBox="0 0 32 32" style="width:20px; height:20px; fill:#fff;"><path d="M16.04 2.67c-7.33 0-13.28 5.95-13.28 13.28 0 2.34.62 4.63 1.79 6.64L2.67 29.3l6.87-1.8a13.24 13.24 0 0 0 6.5 1.66h.01c7.33 0 13.28-5.95 13.28-13.28S23.37 2.67 16.04 2.67zm0 24.3h-.01a11 11 0 0 1-5.6-1.53l-.4-.24-4.08 1.07 1.09-3.97-.26-.41a10.98 10.98 0 0 1-1.69-5.84c0-6.08 4.95-11.02 11.03-11.02 2.94 0 5.71 1.15 7.79 3.23a10.95 10.95 0 0 1 3.23 7.8c0 6.08-4.95 11.02-11.03 11.02h-.07z"/></svg>
-      </a>
-
-      <button class="icon-btn" onclick="openCart()" aria-label="Cart kholein">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
-        <span class="cart-count">0</span>
-      </button>
-    </div>
-  </div>
+    <div class="header-actions">
+      <a class="wa-quick-btn" href="https://wa.me/923702271313?text=Hello HERBA L.S.M! I would like more details about your products." target="_blank">
+        <svg viewBox="0 0 32 32"><path d="M16.04 2.67c-7.33 0-13.28 5.95-13.28 13.28 0 2.34.62 4.63 1.79 6.64L2.67 29.3l6.87-1.8a13.24 13.24 0 0 0 6.5 1.66h.01c7.33 0 13.28-5.95 13.28-13.28S23.37 2.67 16.04 2.67zm0 24.3h-.01a11 11 0 0 1-5.6-1.53l-.4-.24-4.08 1.07 1.09-3.97-.26-.41a10.98 10.98 0 0 1-1.69-5.84c0-6.08 4.95-11.02 11.03-11.02 2.94 0 5.71 1.15 7.79 3.23a10.95 10.95 0 0 1 3.23 7.8c0 6.08-4.95 11.02-11.03 11.02h-.07z"/></svg>
+        <span>Chat Now</span>
+      </a>
+      <button class="icon-btn" onclick="openCart()" aria-label="Cart kholein">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="cart-count">0</span>
+      </button>
+    </div>
+  </div>
 </header>
 
-<!-- ============ HERO SECTION ============ -->
-<section class="hero-section">
-  <div class="hero-slides">
-    <div class="hero-slide active" style="background-image:linear-gradient(rgba(15,28,20,0.6), rgba(15,28,20,0.6)), url('images/hero-1.jpg');">
-      <div class="container hero-content">
-        <div class="eyebrow">100% Pure & Natural</div>
-        <h1>Pure Botanical Hair Care for Real Results</h1>
-        <p>Khalis jadi-bootiyon se tayar shuda hair oils aur herbal shampoos jo baalon ko mazboot, ghana aur chamkdaar banayein.</p>
-        <div class="hero-btns">
-          <a href="products.html" class="btn btn-primary">Shop Collection</a>
-          <a href="https://wa.me/923702271313?text=Salam!%20I%20want%20consultation%20about%20hair%20care." target="_blank" class="btn btn-outline-white">Free Consultation</a>
-        </div>
-      </div>
-    </div>
-    <div class="hero-slide" style="background-image:linear-gradient(rgba(15,28,20,0.6), rgba(15,28,20,0.6)), url('images/hero-2.jpg');">
-      <div class="container hero-content">
-        <div class="eyebrow">Chemical Free Promise</div>
-        <h1>No Sulphate. No Parabens. Just Nature.</h1>
-        <p>Apne baalon ko dein chemical products ke nuqsanat se mukammal nijaat aur qudrati ghizaiyat.</p>
-        <div class="hero-btns">
-          <a href="products.html?cat=hair-oils" class="btn btn-primary">Explore Hair Oils</a>
-          <a href="products.html?cat=shampoo" class="btn btn-outline-white">Explore Shampoos</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container hero-dots-wrap">
-    <div class="hero-dots">
-      <button class="active" aria-label="Slide 1"></button>
-      <button aria-label="Slide 2"></button>
-    </div>
-  </div>
+<!-- ============ HERO SLIDER ============ -->
+<section class="hero">
+  <div class="seal">
+    <span>NATURE'S</span><span class="big">100%</span><span>HERBAL</span>
+  </div>
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image:url('assets/hair2.jpg');background-position:100% 55%;background-size:100%;"></div>
+    <div class="hero-slide" style="background-image:url('assets/hair1.jpg');background-position:100% 55%;background-size:100%;"></div>
+    <div class="hero-slide" style="background-image:url('assets/hair3.jpg');background-position:100% 55%;background-size:100%;"></div>
+  </div>
+  <div class="hero-content">
+    <div class="eyebrow">Nature's Secret for Healthy Hair</div>
+    <h1>Stronger Roots. <em>Healthier Hair.</em></h1>
+    <p>100% herbal shampoo aur hair oil — sulphate, paraben, silicone aur chemical free. Pure herbs, powerful results.</p>
+    <div class="hero-ctas">
+      <a href="products.html" class="btn btn-primary">
+        Shop Collection
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="https://wa.me/923702271313" target="_blank" class="btn btn-wa">
+        <svg viewBox="0 0 32 32"><path d="M16.04 2.67c-7.33 0-13.28 5.95-13.28 13.28 0 2.34.62 4.63 1.79 6.64L2.67 29.3l6.87-1.8a13.24 13.24 0 0 0 6.5 1.66h.01c7.33 0 13.28-5.95 13.28-13.28S23.37 2.67 16.04 2.67zm0 24.3h-.01a11 11 0 0 1-5.6-1.53l-.4-.24-4.08 1.07 1.09-3.97-.26-.41a10.98 10.98 0 0 1-1.69-5.84c0-6.08 4.95-11.02 11.03-11.02 2.94 0 5.71 1.15 7.79 3.23a10.95 10.95 0 0 1 3.23 7.8c0 6.08-4.95 11.02-11.03 11.02h-.07z"/></svg>
+        Order on WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <button class="active"></button><button></button><button></button>
+  </div>
 </section>
 
-<!-- ============ TRUST PROMISES BAR ============ -->
-<section class="section" style="padding:40px 0; background:var(--bg-card); border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color);">
-  <div class="container">
-    <div class="trust-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px; text-align:center;">
-      <div class="trust-item">
-        <h4 style="color:var(--primary); margin-bottom:6px;">100% Herbal Ingredients</h4>
-        <p style="font-size:0.9rem; color:var(--text-muted);">Pure organic oils and plant extracts</p>
-      </div>
-      <div class="trust-item">
-        <h4 style="color:var(--primary); margin-bottom:6px;">No Harsh Chemicals</h4>
-        <p style="font-size:0.9rem; color:var(--text-muted);">Zero sulphates, parabens, or artificial colors</p>
-      </div>
-      <div class="trust-item">
-        <h4 style="color:var(--primary); margin-bottom:6px;">Easy WhatsApp Orders</h4>
-        <p style="font-size:0.9rem; color:var(--text-muted);">Quick checkout and direct support via WhatsApp</p>
-      </div>
-      <div class="trust-item">
-        <h4 style="color:var(--primary); margin-bottom:6px;">Cash on Delivery</h4>
-        <p style="font-size:0.9rem; color:var(--text-muted);">Safe and reliable delivery across Pakistan</p>
-      </div>
-    </div>
-  </div>
+<!-- ============ TRUST STRIP ============ -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V6l-9-4z"/></svg>Sulphate & Paraben Free</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2C8 6 6 10 6 13a6 6 0 0 0 12 0c0-3-2-7-6-11z"/></svg>100% Natural Herbs</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Cash on Delivery</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M16.04 2.67c-7.33 0-13.28 5.95-13.28 13.28 0 2.34.62 4.63 1.79 6.64L2.67 29.3l6.87-1.8a13.24 13.24 0 0 0 6.5 1.66h.01c7.33 0 13.28-5.95 13.28-13.28S23.37 2.67 16.04 2.67z" transform="translate(4,2) scale(0.7)"/></svg>Order via WhatsApp</div>
+  </div>
+</div>
+
+<!-- ============ CATEGORIES ============ -->
+<section class="section" id="categories">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Shop by Category</div>
+        <h2>Explore Our Range</h2>
+      </div>
+    </div>
+    <div class="cat-grid" id="categoryGrid"></div>
+  </div>
 </section>
 
-<!-- ============ CATEGORIES SECTION ============ -->
-<section class="section">
-  <div class="container">
-    <div class="section-head" style="text-align:center; margin-bottom:40px;">
-      <div class="eyebrow">Explore Collections</div>
-      <h2>Shop By Category</h2>
-    </div>
-    <div class="category-grid" id="categoryGrid"></div>
-  </div>
+<!-- ============ FEATURED PROMO BANNER ============ -->
+<section class="container" style="padding-bottom:20px;">
+  <div class="promo-banner" style="background-image:url('assets/hairoil.jpg');background-position:65% 20%;background-size:100%;">
+    <div class="promo-inner">
+      <div class="eyebrow">Limited Time</div>
+      <h2>Herbal Combo — Save 20%</h2>
+      <p>Complete Herbal Care, Unbeatable Value! Get our Shampoo + Hair Oil Combo at a special discounted price.</p>
+      <a href="products.html?cat=hair-oils" class="btn btn-outline">Explore Combo</a>
+    </div>
+  </div>
 </section>
 
 <!-- ============ FEATURED PRODUCTS ============ -->
-<section class="section" style="background:var(--bg-card);">
-  <div class="container">
-    <div class="section-head" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:40px;">
-      <div>
-        <div class="eyebrow">Top Recommendations</div>
-        <h2>Featured Products</h2>
-      </div>
-      <a href="products.html" class="btn btn-outline" style="white-space:nowrap;">View All Products</a>
-    </div>
-    <div class="product-grid" id="featuredGrid"></div>
-  </div>
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Handpicked</div>
+        <h2>Featured Products</h2>
+        <p>Pure nature, tailored for your hair. Discover our most loved Herbal Hair Care Range.</p>
+      </div>
+      <a href="products.html" class="view-all">View All Products →</a>
+    </div>
+    <div class="product-grid" id="featuredGrid"></div>
+  </div>
 </section>
 
 <!-- ============ BEST SELLERS ============ -->
 <section class="section">
-  <div class="container">
-    <div class="section-head" style="text-align:center; margin-bottom:40px;">
-      <div class="eyebrow">Customer Favorites</div>
-      <h2>Best Sellers</h2>
-    </div>
-    <div class="product-grid" id="bestsellerGrid"></div>
-  </div>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Customer Favorites</div>
+        <h2>Best Sellers</h2>
+      </div>
+      <a href="products.html" class="view-all">View All Products →</a>
+    </div>
+    <div class="product-grid" id="bestsellerGrid"></div>
+  </div>
 </section>
 
-<!-- ============ ABOUT SECTION ============ -->
-<section class="section" id="about" style="background:var(--bg-card);">
-  <div class="container" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:40px; align-items:center;">
-    <div>
-      <div class="eyebrow">Our Heritage & Story</div>
-      <h2>Qudrat Ki Taraf Aik Qadam</h2>
-      <p style="margin-top:16px; color:var(--text-muted); line-height:1.7;">HERBA L·S·M ki bunyad is soch par rakhi gayi ke aaj ke chemical se bhare dor mein logon ko aisi hair care di jaye jo mukammal taur par natural aur khalis ho. Hamari har product purane nuskho aur modern research ka behtareen امتزاج hai.</p>
-      <p style="margin-top:12px; color:var(--text-muted); line-height:1.7;">Har bottle mein qudrat ki asli khushboo aur afadiyat mehfooz ki gayi hai taake aapke baalon ko mile behtareen dekhbhal.</p>
-    </div>
-    <div style="border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.08);">
-      <img src="images/about.jpg" alt="About Herba LSM" style="width:100%; height:auto; display:block;">
-    </div>
-  </div>
+<!-- ============ CUSTOMER REVIEWS (WHATSAPP) ============ -->
+<section class="section" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Verified on WhatsApp</div>
+        <h2>What Our Customers Say</h2>
+        <p>Real feedback from real customers, straight from our WhatsApp chats — no filters, no scripts.</p>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card"><img src="assets/reviews/review-1.jpg" alt="Customer WhatsApp review" loading="lazy" onclick="openLightbox('assets/reviews/review-1.jpg')"></div>
+      <div class="review-card"><img src="assets/reviews/review-2.jpg" alt="Customer WhatsApp review" loading="lazy" onclick="openLightbox('assets/reviews/review-2.jpg')"></div>
+      <div class="review-card"><img src="assets/reviews/review-3.jpg" alt="Customer WhatsApp review" loading="lazy" onclick="openLightbox('assets/reviews/review-3.jpg')"></div>
+      <div class="review-card"><img src="assets/reviews/review-4.jpg" alt="Customer WhatsApp review" loading="lazy" onclick="openLightbox('assets/reviews/review-4.jpg')"></div>
+      <div class="review-card"><img src="assets/reviews/review-5.jpg" alt="Customer WhatsApp review" loading="lazy" onclick="openLightbox('assets/reviews/review-5.jpg')"></div>
+      <div class="review-card"><img src="assets/reviews/review-6.jpg" alt="Customer WhatsApp review" loading="lazy" onclick="openLightbox('assets/reviews/review-6.jpg')"></div>
+      <div class="review-card"><img src="assets/reviews/review-7.jpg" alt="Customer WhatsApp review" loading="lazy" onclick="openLightbox('assets/reviews/review-7.jpg')"></div>
+      <div class="review-card"><img src="assets/reviews/review-8.jpg" alt="Customer WhatsApp review" loading="lazy" onclick="openLightbox('assets/reviews/review-8.jpg')"></div>
+      <div class="review-card"><img src="assets/reviews/review-9.jpg" alt="Customer WhatsApp review" loading="lazy" onclick="openLightbox('assets/reviews/review-9.jpg')"></div>
+    </div>
+  </div>
 </section>
 
-<!-- ============ CONTACT SECTION ============ -->
+<!-- ============ ABOUT / SIGNATURE ============ -->
+<section class="section section-alt" id="about">
+  <div class="container" style="max-width:760px;text-align:center;">
+    <div class="leaf-divider">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8 6 6 10 6 13a6 6 0 0 0 12 0c0-3-2-7-6-11z"/></svg>
+    </div>
+    <div class="eyebrow" style="justify-content:center;">Our Promise</div>
+    <h2 style="margin-bottom:16px;">Pure Herbs. Powerful Results.</h2>
+    <p style="color:var(--text-muted);max-width:560px;margin:0 auto;">
+      At HERBA L.S.M, every product is crafted with 100% pure natural herbs — completely free from sulfates, parabens, silicones, and harsh chemicals. We believe healthy hair begins with nature, which is why we never compromise on ingredient quality.
+    </p>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER / WHATSAPP SUBSCRIBE ============ -->
 <section class="section" id="contact">
-  <div class="container" style="text-align:center; max-width:700px;">
-    <div class="eyebrow">Get in Touch</div>
-    <h2>Have Questions or Need Help?</h2>
-    <p style="margin:16px 0 30px; color:var(--text-muted);">Aapko konsa product suit karega ya order ke hawale se koi bhi sawal ho, humein direct WhatsApp par rabta karein!</p>
-    <a href="https://wa.me/923702271313?text=Hello%20HERBA%20L.S.M,%20I%20need%20some%20help." target="_blank" class="wa-checkout-btn" style="display:inline-flex; width:auto; padding:14px 28px;">
-      <svg viewBox="0 0 32 32"><path d="M16.04 2.67c-7.33 0-13.28 5.95-13.28 13.28 0 2.34.62 4.63 1.79 6.64L2.67 29.3l6.87-1.8a13.24 13.24 0 0 0 6.5 1.66h.01c7.33 0 13.28-5.95 13.28-13.28S23.37 2.67 16.04 2.67z"/></svg>
-      Chat with Us on WhatsApp
-    </a>
-  </div>
+  <div class="container">
+    <div class="subscribe">
+      <div class="eyebrow" style="justify-content:center;">Stay Connected</div>
+      <h2>Get Exclusive Deals & Updates Directly on WhatsApp!</h2>
+      <p>Stay updated on new launches, exclusive discounts, and expert hair care tips — message us on WhatsApp.</p>
+      <a href="https://wa.me/923702271313?text=Keep me updated with HERBA L.S.M news and offers" target="_blank" class="btn btn-wa">
+        <svg viewBox="0 0 32 32"><path d="M16.04 2.67c-7.33 0-13.28 5.95-13.28 13.28 0 2.34.62 4.63 1.79 6.64L2.67 29.3l6.87-1.8a13.24 13.24 0 0 0 6.5 1.66h.01c7.33 0 13.28-5.95 13.28-13.28S23.37 2.67 16.04 2.67z"/></svg>
+        Message Us on WhatsApp
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- ============ FOOTER ============ -->
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col footer-brand">
-        <a href="index.html" class="logo">
-          <svg viewBox="0 0 40 40" fill="none"><path d="M20 4C13 10 9 16 9 22a11 11 0 0 0 22 0c0-6-4-12-11-18z" stroke="#c9a24a" stroke-width="1.6"/></svg>
-          <span class="logo-text"><b>HERBA</b><span>L · S · M</span></span>
-        </a>
-        <p>100% natural aur herbal hair care — sulphate, paraben aur chemical free.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Shop</h4>
-        <ul>
-          <li><a href="products.html?cat=hair-oils">Natural Hair Oils</a></li>
-          <li><a href="products.html?cat=shampoo">Herbal Shampoos</a></li>
-          <li><a href="products.html">All Products</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Help</h4>
-        <ul>
-          <li><a href="#contact">Order Tracking (WhatsApp)</a></li>
-          <li><a href="#">Return Policy</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="https://wa.me/923702271313" target="_blank">WhatsApp: +92 370 2271313</a></li>
-          <li>Karachi, Pakistan</li>
-        </ul>
-      </div>
-    </div>
-    <div class="bottom-bar">
-      <span>© 2026 HERBA L·S·M. All rights reserved.</span>
-      <span>Orders processed manually via WhatsApp.</span>
-    </div>
-  </div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M20 4C13 10 9 16 9 22a11 11 0 0 0 22 0c0-6-4-12-11-18z" stroke="#c9a24a" stroke-width="1.6"/></svg>
+          <span class="logo-text"><b>HERBA</b><span>L · S · M</span></span>
+        </a>
+        <p>100% Natural & Herbal Hair Care — Free from sulfates, parabens, and harsh chemicals. Pure nature, crafted for your hair.</p>
+        <div class="social-row">
+          <a href="https://www.facebook.com/profile.php?id=61592626576031" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 21v-7h2.4l.4-3H13.5V9c0-.9.3-1.5 1.6-1.5h1.4V5c-.3 0-1.2-.1-2.2-.1-2.2 0-3.8 1.4-3.8 3.9V11H8v3h2.5v7h3z"/></svg></a>
+          <a href="https://www.instagram.com/herba.lsm?igsh=djVta3VnMXV0b2Z1" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c2.7 0 3 0 4 .1 1 0 1.7.2 2 .4.5.2.9.4 1.3.8.4.4.6.8.8 1.3.2.4.4 1.1.4 2 .1 1.1.1 1.4.1 4s0 3-.1 4c0 1-.2 1.7-.4 2-.2.5-.4.9-.8 1.3-.4.4-.8.6-1.3.8-.4.2-1.1.4-2 .4-1.1.1-1.4.1-4 .1s-3 0-4-.1c-1 0-1.7-.2-2-.4-.5-.2-.9-.4-1.3-.8-.4-.4-.6-.8-.8-1.3-.2-.4-.4-1.1-.4-2-.1-1.1-.1-1.4-.1-4s0-3 .1-4c0-1 .2-1.7.4-2 .2-.5.4-.9.8-1.3.4-.4.8-.6 1.3-.8.4-.2 1.1-.4 2-.4 1.1-.1 1.4-.1 4-.1zM12 0C9.3 0 9 0 7.9.1c-1.2 0-2 .2-2.7.5-.7.3-1.4.7-2 1.3C2.6 2.5 2.2 3.1 1.9 3.9 1.6 4.6 1.4 5.4 1.4 6.5 1.3 7.6 1.3 8 1.3 10.7v2.6c0 2.7 0 3.1.1 4.2 0 1.2.2 2 .5 2.7.3.7.7 1.4 1.3 2 .6.6 1.2 1 2 1.3.6.3 1.4.4 2.6.5 1.1 0 1.4.1 4.2.1s3.1 0 4.2-.1c1.2 0 2-.2 2.7-.5.7-.3 1.4-.7 2-1.3.6-.6 1-1.2 1.3-2 .3-.7.4-1.4.5-2.6 0-1.1.1-1.4.1-4.2v-2.6c0-2.7 0-3.1-.1-4.2 0-1.2-.2-2-.5-2.7-.3-.7-.7-1.4-1.3-2-.6-.6-1.2-1-2-1.3-.7-.3-1.4-.4-2.6-.5C15.1 0 14.7 0 12 0z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="products.html?cat=hair-oils">Natural Hair Oils</a></li>
+          <li><a href="products.html?cat=shampoo">Herbal Shampoos</a></li>
+          <li><a href="products.html">All Products</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">Order Tracking (WhatsApp)</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Delivery Info</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/923702271313" target="_blank">WhatsApp: +92 370 2271313</a></li>
+          <li><a href="mailto:hello@herbalsm.pk">hello@herbalsm.pk</a></li>
+          <li>Karachi, Pakistan</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      <span>© 2026 HERBA L·S·M. All rights reserved.</span>
+      <span>Orders processed manually via WhatsApp — no online payment required.</span>
+    </div>
+  </div>
 </footer>
 
 <!-- ============ FLOATING WHATSAPP BUTTON ============ -->
 <a class="wa-float" href="https://wa.me/923702271313" target="_blank" aria-label="Chat with Us on WhatsApp">
-  <svg viewBox="0 0 32 32"><path d="M16.04 2.67c-7.33 0-13.28 5.95-13.28 13.28 0 2.34.62 4.63 1.79 6.64L2.67 29.3l6.87-1.8a13.24 13.24 0 0 0 6.5 1.66h.01c7.33 0 13.28-5.95 13.28-13.28S23.37 2.67 16.04 2.67zm0 24.3h-.01a11 11 0 0 1-5.6-1.53l-.4-.24-4.08 1.07 1.09-3.97-.26-.41a10.98 10.98 0 0 1-1.69-5.84c0-6.08 4.95-11.02 11.03-11.02 2.94 0 5.71 1.15 7.79 3.23a10.95 10.95 0 0 1 3.23 7.8c0 6.08-4.95 11.02-11.03 11.02h-.07zm6.04-8.26c-.33-.17-1.96-.97-2.27-1.08-.3-.11-.53-.17-.75.17-.22.33-.86 1.08-1.05 1.3-.19.22-.39.25-.72.08-.33-.17-1.4-.52-2.66-1.65-.98-.88-1.65-1.96-1.84-2.29-.19-.33-.02-.51.15-.68.15-.15.33-.39.5-.58.17-.2.22-.33.33-.55.11-.22.06-.42-.03-.58-.08-.17-.75-1.8-1.02-2.47-.27-.65-.55-.56-.75-.57h-.64c-.22 0-.58.08-.88.42-.3.33-1.16 1.13-1.16 2.76s1.19 3.2 1.35 3.42c.17.22 2.34 3.58 5.68 5.02.79.34 1.41.55 1.89.7.79.25 1.51.22 2.08.13.63-.1 1.96-.8 2.24-1.57.28-.77.28-1.44.19-1.57-.08-.14-.3-.22-.63-.39z"/></svg>
+  <svg viewBox="0 0 32 32"><path d="M16.04 2.67c-7.33 0-13.28 5.95-13.28 13.28 0 2.34.62 4.63 1.79 6.64L2.67 29.3l6.87-1.8a13.24 13.24 0 0 0 6.5 1.66h.01c7.33 0 13.28-5.95 13.28-13.28S23.37 2.67 16.04 2.67zm0 24.3h-.01a11 11 0 0 1-5.6-1.53l-.4-.24-4.08 1.07 1.09-3.97-.26-.41a10.98 10.98 0 0 1-1.69-5.84c0-6.08 4.95-11.02 11.03-11.02 2.94 0 5.71 1.15 7.79 3.23a10.95 10.95 0 0 1 3.23 7.8c0 6.08-4.95 11.02-11.03 11.02h-.07zm6.04-8.26c-.33-.17-1.96-.97-2.27-1.08-.3-.11-.53-.17-.75.17-.22.33-.86 1.08-1.05 1.3-.19.22-.39.25-.72.08-.33-.17-1.4-.52-2.66-1.65-.98-.88-1.65-1.96-1.84-2.29-.19-.33-.02-.51.15-.68.15-.15.33-.39.5-.58.17-.2.22-.33.33-.55.11-.22.06-.42-.03-.58-.08-.17-.75-1.8-1.02-2.47-.27-.65-.55-.56-.75-.57h-.64c-.22 0-.58.08-.88.42-.3.33-1.16 1.13-1.16 2.76s1.19 3.2 1.35 3.42c.17.22 2.34 3.58 5.68 5.02.79.34 1.41.55 1.89.7.79.25 1.51.22 2.08.13.63-.1 1.96-.8 2.24-1.57.28-.77.28-1.44.19-1.57-.08-.14-.3-.22-.63-.39z"/></svg>
 </a>
 
 <!-- ============ CART DRAWER ============ -->
 <div class="cart-overlay" id="cartOverlay"></div>
 <aside class="cart-drawer" id="cartDrawer">
-  <div class="cart-head">
-    <h3>Your Cart</h3>
-    <button onclick="closeCart()" aria-label="Cart band karein">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-  </div>
-  <div class="cart-items" id="cartItems"></div>
-  <div class="cart-foot">
-    <div class="cart-total-row">
-      <span>Total</span>
-      <span class="total-amt" id="cartTotalAmt">Rs. 0</span>
-    </div>
-    <p class="cart-note">Payment is Cash on Delivery. Please share your delivery details on WhatsApp to confirm your order.</p>
-    <button class="wa-checkout-btn" onclick="openOrderModal()">
-      <svg viewBox="0 0 32 32"><path d="M16.04 2.67c-7.33 0-13.28 5.95-13.28 13.28 0 2.34.62 4.63 1.79 6.64L2.67 29.3l6.87-1.8a13.24 13.24 0 0 0 6.5 1.66h.01c7.33 0 13.28-5.95 13.28-13.28S23.37 2.67 16.04 2.67z"/></svg>
-      Place Order via WhatsApp
-    </button>
-  </div>
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button onclick="closeCart()" aria-label="Cart band karein">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span class="total-amt" id="cartTotalAmt">Rs. 0</span>
+    </div>
+    <p class="cart-note">Cash on Delivery available! Please share your shipping details on WhatsApp to confirm your order.</p>
+    <button class="wa-checkout-btn" onclick="openOrderModal()">
+      <svg viewBox="0 0 32 32"><path d="M16.04 2.67c-7.33 0-13.28 5.95-13.28 13.28 0 2.34.62 4.63 1.79 6.64L2.67 29.3l6.87-1.8a13.24 13.24 0 0 0 6.5 1.66h.01c7.33 0 13.28-5.95 13.28-13.28S23.37 2.67 16.04 2.67z"/></svg>
+      Place Order via WhatsApp
+    </button>
+  </div>
 </aside>
 
-<!-- ============ ORDER MODAL ============ -->
+<!-- ============ ORDER DETAILS MODAL ============ -->
 <div class="modal-overlay" id="orderModal">
-  <div class="modal-box">
-    <h3>Delivery Details</h3>
-    <p>These details will be automatically added to your WhatsApp message.</p>
-    <form id="orderForm">
-      <div class="form-field">
-        <label for="custName">Full Name</label>
-        <input type="text" id="custName" placeholder="Enter Your Name" required>
-      </div>
-      <div class="form-field">
-        <label for="custPhone">Phone Number</label>
-        <input type="tel" id="custPhone" placeholder="03XX-XXXXXXX" required>
-      </div>
-      <div class="form-field">
-        <label for="custAddress">Delivery Address</label>
-        <textarea id="custAddress" placeholder="House/Flat No, Street, Area" required></textarea>
-      </div>
-      <div class="form-field">
-        <label for="custNotes">Note (optional)</label>
-        <textarea id="custNotes" placeholder="Special delivery instructions..."></textarea>
-      </div>
-      <div class="modal-actions">
-        <button type="button" class="btn btn-outline" onclick="closeOrderModal()">Cancel</button>
-        <button type="submit" class="wa-checkout-btn">
-          <svg viewBox="0 0 32 32"><path d="M16.04 2.67c-7.33 0-13.28 5.95-13.28 13.28 0 2.34.62 4.63 1.79 6.64L2.67 29.3l6.87-1.8a13.24 13.24 0 0 0 6.5 1.66h.01c7.33 0 13.28-5.95 13.28-13.28S23.37 2.67 16.04 2.67z"/></svg>
-          Send Order
-        </button>
-      </div>
-    </form>
-  </div>
+  <div class="modal-box">
+    <h3>Delivery Details</h3>
+    <p>These details will be automatically added to your WhatsApp message.</p>
+    <form id="orderForm">
+      <div class="form-field">
+        <label for="custName">Full Name</label>
+        <input type="text" id="custName" placeholder="Enter Your Name" required>
+      </div>
+      <div class="form-field">
+        <label for="custPhone">Phone Number</label>
+        <input type="tel" id="custPhone" placeholder="03XX-XXXXXXX" required>
+      </div>
+      <div class="form-field">
+        <label for="custAddress">Delivery Address</label>
+        <textarea id="custAddress" placeholder="House/Flat No, Street, Area" required></textarea>
+      </div>
+      <div class="form-field">
+        <label for="custNotes">Note (optional)</label>
+        <textarea id="custNotes" placeholder="Special delivery instructions..."></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline" onclick="closeOrderModal()">Cancel</button>
+        <button type="submit" class="wa-checkout-btn">
+          <svg viewBox="0 0 32 32"><path d="M16.04 2.67c-7.33 0-13.28 5.95-13.28 13.28 0 2.34.62 4.63 1.79 6.64L2.67 29.3l6.87-1.8a13.24 13.24 0 0 0 6.5 1.66h.01c7.33 0 13.28-5.95 13.28-13.28S23.37 2.67 16.04 2.67z"/></svg>
+          Send Order
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ============ REVIEW IMAGE LIGHTBOX ============ -->
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <img id="lightboxImg" src="" alt="Customer review">
 </div>
 
 <div class="toast" id="toast"></div>
