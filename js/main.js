@@ -2,23 +2,40 @@
    HERBA · L·S·M  —  MAIN SITE LOGIC
    ========================================================= */
 
-/* ---------- Mobile Nav Toggle ---------- */
+/* ---------- Mobile Nav Toggle (Global Function & Auto Close) ---------- */
+function toggleNav() {
+  const mainNav = document.getElementById('mainNav');
+  const navToggle = document.getElementById('navToggle');
+  if (mainNav) {
+    mainNav.classList.toggle('open');
+    mainNav.classList.toggle('active');
+  }
+  if (navToggle) {
+    navToggle.classList.toggle('active');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
 
+  // Direct Event Listener Fallback
   if (navToggle && mainNav) {
     navToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      mainNav.classList.toggle('open');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
-        mainNav.classList.remove('open');
-      }
+      toggleNav();
     });
   }
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (mainNav && navToggle) {
+      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+        mainNav.classList.remove('open', 'active');
+        navToggle.classList.remove('active');
+      }
+    }
+  });
 });
 
 /* ---------- Hero Slider ---------- */
@@ -103,16 +120,16 @@ function categoryCardHTML(c){
 /* ---------- Homepage Render ---------- */
 function renderHomepage(){
   const catWrap = document.getElementById("categoryGrid");
-  if(catWrap) catWrap.innerHTML = CATEGORIES.map(categoryCardHTML).join("");
+  if(catWrap && typeof CATEGORIES !== "undefined") catWrap.innerHTML = CATEGORIES.map(categoryCardHTML).join("");
 
   const featuredWrap = document.getElementById("featuredGrid");
-  if(featuredWrap){
+  if(featuredWrap && typeof PRODUCTS !== "undefined"){
     const featured = PRODUCTS.slice(0, 4);
     featuredWrap.innerHTML = featured.map(productCardHTML).join("");
   }
 
   const bestWrap = document.getElementById("bestsellerGrid");
-  if(bestWrap){
+  if(bestWrap && typeof PRODUCTS !== "undefined"){
     const best = PRODUCTS.filter(p => p.badge === "Best Seller");
     bestWrap.innerHTML = best.map(productCardHTML).join("");
   }
@@ -124,6 +141,7 @@ let activeSort = "default";
 let searchTerm = "";
 
 function getFilteredProducts(){
+  if(typeof PRODUCTS === "undefined") return [];
   let list = [...PRODUCTS];
 
   if(activeFilter !== "all"){
@@ -208,7 +226,7 @@ function initListingControls(){
 
 /* ---------- Order Modal ---------- */
 function openOrderModal(){
-  if(getCart().length === 0){
+  if(typeof getCart === "function" && getCart().length === 0){
     showToast("Your cart is empty — please add products before checking out.");
     return;
   }
@@ -225,7 +243,9 @@ function submitOrderForm(e){
     address: document.getElementById("custAddress").value.trim(),
     notes: document.getElementById("custNotes").value.trim(),
   };
-  sendOrderToWhatsApp(customer);
+  if(typeof sendOrderToWhatsApp === "function") {
+    sendOrderToWhatsApp(customer);
+  }
   closeOrderModal();
 }
 
@@ -296,7 +316,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavHighlight();
   initScrollSpy();
 
-  document.getElementById("cartOverlay")?.addEventListener("click", closeCart);
+  document.getElementById("cartOverlay")?.addEventListener("click", () => {
+    if(typeof closeCart === "function") closeCart();
+  });
 
   const form = document.getElementById("orderForm");
   if(form) form.addEventListener("submit", submitOrderForm);
@@ -317,29 +339,4 @@ function closeLightbox(){
 
 document.addEventListener("keydown", e => {
   if(e.key === "Escape") closeLightbox();
-});
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const navToggle = document.getElementById('navToggle');
-  const mainNav = document.getElementById('mainNav');
-
-  if (navToggle && mainNav) {
-    navToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      mainNav.classList.toggle('open');
-      navToggle.classList.toggle('active');
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
-        mainNav.classList.remove('open');
-      }
-    });
-  }
 });
