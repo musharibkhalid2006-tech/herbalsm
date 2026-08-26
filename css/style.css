@@ -684,43 +684,50 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
   }
 }
 
-/* =========================================================
-   MOBILE MENU DROPDOWN & SOLID BACKGROUND FIX
+
+  /* =========================================================
+   FINAL OVERRIDE FIX FOR MOBILE NAV
    ========================================================= */
-@media (max-width: 920px) {
-  /* Header Positioning Fix */
+@media screen and (max-width: 920px) {
+  /* Sticky/Relative Conflict Fix */
   header.site-header {
-    position: relative !important;
-    z-index: 100 !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
   }
 
-  /* Main Nav Menu - Solid Color & Header Ke Bilkul Peeche/Neeche Placement */
+  /* Force Full Screen Solid Mobile Menu */
   header.site-header nav.main-nav {
-    position: absolute !important;
-    top: 100% !important; /* Header bar ke bilkul neeche se start hoga */
+    position: fixed !important;
+    top: 60px !important; /* Header bar ke exact neeche */
     left: 0 !important;
     right: 0 !important;
-    width: 100% !important;
-    background: #0e1a12 !important; /* Solid Dark Theme Green (No Transparency) */
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - 60px) !important;
+    background-color: #0e1a12 !important; /* Solid Dark Green */
+    opacity: 1 !important;
+    backdrop-filter: none !important;
+    display: none !important;
     flex-direction: column !important;
-    padding: 10px 24px 25px !important;
+    padding: 20px 24px !important;
     gap: 0 !important;
-    display: none !important; /* Hide by default */
-    z-index: 90 !important;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8) !important;
-    border-bottom: 2px solid var(--gold-dim) !important;
+    z-index: 9999 !important;
+    overflow-y: auto !important;
+    transform: none !important;
   }
 
-  /* When Menu is Toggled via JS (toggleNav Function) */
+  /* Open state triggered by JavaScript */
   header.site-header nav.main-nav.open {
     display: flex !important;
   }
 
-  /* Menu Links Styling inside the Dropdown */
+  /* Clean List Items */
   header.site-header nav.main-nav a {
-    padding: 14px 6px !important;
+    display: block !important;
+    padding: 16px 8px !important;
     border-bottom: 1px solid rgba(201, 162, 74, 0.2) !important;
-    font-size: 0.95rem !important;
+    font-size: 1rem !important;
     color: var(--cream) !important;
     text-align: left !important;
     width: 100% !important;
@@ -733,6 +740,6 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
   header.site-header nav.main-nav a:hover,
   header.site-header nav.main-nav a.active {
     color: var(--gold-light) !important;
-    padding-left: 10px !important;
+    padding-left: 12px !important;
   }
 }
