@@ -30,7 +30,7 @@ const PRODUCTS = [
     price: 850,
     oldPrice: 950,
     badge: "Best Seller",
-    image: "assets/hair7.jpg",
+    image: "assets/hairoil9.jpg",
     tags: ["sulfate-free", "paraben-free", "silicone-free", "100% natural"],
     description: "Herbal shampoo infused with Hibiscus — free from sulfates, parabens, and silicones. Gently cleanses while nourishing your scalp naturally."
   },
@@ -43,7 +43,7 @@ const PRODUCTS = [
     price: 900,
     oldPrice: 1000,
     badge: "Best Seller",
-    image: "assets/hairoil5.jpeg",
+    image: "assets/hairoil4.jpg",
     tags: ["sulfate-free", "paraben-free", "chemical-free"],
     description: "Reduces hair fall, strengthens roots, and deeply nourishes the scalp with a sulfate and paraben-free formula."
   },
@@ -56,7 +56,7 @@ const PRODUCTS = [
     price: 800,
     oldPrice: 900,
     badge: "Best Seller",
-    image: "assets/hairoil3.jpeg",
+    image: "assets/hairoil2.jpg",
     tags: ["nourishes roots", "reduces hair fall", "100% natural"],
     description: "Nourishes hair roots and minimizes hair fall. Promotes healthy growth while leaving hair strong and glossy."
   },
@@ -69,7 +69,7 @@ const PRODUCTS = [
     price: 1600,
     oldPrice: 1700,
     badge: "Best Seller",
-    image: "assets/hairoil4.jpeg",
+    image: "assets/hairoil1.jpg",
     tags: ["complete hair care", "natural herbs", "chemical-free"],
     description: "A complete herbal hair care routine featuring our signature shampoo and hair oil combo for stronger roots and healthier hair."
   },
@@ -82,7 +82,7 @@ const PRODUCTS = [
     price: 1600,
     oldPrice: 1700,
     badge: "Best Seller",
-    image: "assets/hairoil6.jpeg",
+    image: "assets/hairoil5.jpg",
     tags: ["family pack", "sulfate-free", "natural herbs"],
     description: "A value-sized family pack of our Hibiscus herbal shampoo. Crafted with pure botanicals for visible results."
   },
@@ -95,7 +95,7 @@ const PRODUCTS = [
     price: 850,
     oldPrice: 950,
     badge: "Best Seller",
-    image: "assets/hairoil7.jpeg",
+    image: "assets/hairoil6.jpg",
     tags: ["nourishes roots", "natural herbs"],
     description: "Twin-pack herbal hair oil designed for daily use to strengthen hair roots and significantly reduce hair fall."
   },
@@ -108,7 +108,7 @@ const PRODUCTS = [
     price: 4000,
     oldPrice: 4150,
     badge: "New",
-    image: "assets/hairoilcombo2.jpg",
+    image: "assets/hairoil8.jpg",
     tags: ["family pack", "sulfate-free", "natural herbs", "complete hair care"],
     description: "Complete herbal hair care bundle — 3 Hibiscus Herbal Shampoos and 2 Herbal Hair Oils, made with 100% natural, sulphate-free ingredients for stronger, healthier hair."
   },
@@ -121,7 +121,7 @@ const PRODUCTS = [
     price: 2400,
     oldPrice: 2550,
     badge: "New",
-    image: "assets/hairoilcombo1.jpg",
+    image: "assets/hairoil7.jpg",
     tags: ["complete hair care", "natural herbs", "sulfate-free"],
     description: "A well-rounded herbal trio — Herbal Shampoo, Herbal Hair Oil, and Hibiscus Herbal Shampoo — together for a complete, natural hair care routine."
   },
