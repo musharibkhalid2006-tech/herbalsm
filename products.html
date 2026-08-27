@@ -159,35 +159,36 @@
   </div>
 </aside>
 
-<div class="modal-overlay" id="orderModal">
-  <div class="modal-box">
-    <h3>Delivery Details</h3>
-    <p>These details will be automatically added to your WhatsApp message.</p>
-    <form id="orderForm">
-      <div class="form-field">
-        <label for="custName">Full Name</label>
-        <input type="text" id="custName" placeholder="Enter Your Name" required>
+<!-- PRODUCT DETAIL MODAL -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal-box product-modal-box">
+    <button class="modal-close-btn" id="closeProductModal">&times;</button>
+    <div class="modal-product-body">
+      <div class="modal-product-media">
+        <img id="modalProductImg" src="" alt="Product Image">
       </div>
-      <div class="form-field">
-        <label for="custPhone">Phone Number</label>
-        <input type="tel" id="custPhone" placeholder="03XX-XXXXXXX" required>
+      <div class="modal-product-info">
+        <span class="product-cat" id="modalProductCat">Category</span>
+        <h3 id="modalProductTitle">Product Title</h3>
+        <span class="product-vol" id="modalProductVol">Volume</span>
+        
+        <div class="price-row" style="margin: 15px 0;">
+          <span class="price" id="modalProductPrice">Rs. 0</span>
+          <span class="price-old" id="modalProductOldPrice"></span>
+        </div>
+        
+        <p id="modalProductDesc" style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 20px;">
+          Product ki short description yahan aayegi.
+        </p>
+
+        <div class="product-actions">
+          <button class="btn-add" id="modalAddToCartBtn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Add to Cart
+          </button>
+        </div>
       </div>
-      <div class="form-field">
-        <label for="custAddress">Delivery Address</label>
-        <textarea id="custAddress" placeholder="House/Flat No, Street, Area" Required></textarea>
-      </div>
-      <div class="form-field">
-        <label for="custNotes">Note (optional)</label>
-        <textarea id="custNotes" placeholder="Special delivery instructions..."></textarea>
-      </div>
-      <div class="modal-actions">
-        <button type="button" class="btn btn-outline" onclick="closeOrderModal()">Cancel</button>
-        <button type="submit" class="wa-checkout-btn">
-          <svg viewBox="0 0 32 32"><path d="M16.04 2.67c-7.33 0-13.28 5.95-13.28 13.28 0 2.34.62 4.63 1.79 6.64L2.67 29.3l6.87-1.8a13.24 13.24 0 0 0 6.5 1.66h.01c7.33 0 13.28-5.95 13.28-13.28S23.37 2.67 16.04 2.67z"/></svg>
-          Send Order
-        </button>
-      </div>
-    </form>
+    </div>
   </div>
 </div>
 
@@ -196,5 +197,6 @@
 <script src="js/data.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/main.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
