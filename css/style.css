@@ -890,3 +890,20 @@ header.site-header {
     font-size: .7rem !important;
   }
 }
+
+
+/* ===== Heart (wishlist) icon ko image ke andar rakho ===== */
+@media (max-width:600px){
+  html body .product-card{
+    position: relative !important;
+  }
+  html body .product-card .product-media{
+    position: relative !important;
+  }
+  html body .product-card .wish-btn{
+    position: absolute !important;
+    top: 8px !important;
+    right: 8px !important;
+    z-index: 5 !important;
+  }
+}
