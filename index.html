@@ -285,34 +285,66 @@
 
 <!-- ============ ORDER DETAILS MODAL ============ -->
 <div class="modal-overlay" id="orderModal">
-  <div class="modal-box">
-    <h3>Delivery Details</h3>
-    <p>These details will be automatically added to your WhatsApp message.</p>
+  <div class="modal-box" style="max-width: 480px; width: 90%;">
+    <button class="modal-close-btn" onclick="closeOrderModal()" style="position: absolute; top: 15px; right: 20px; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer;">&times;</button>
+
+    <h3 style="margin-bottom: 6px;">Delivery Details</h3>
+    <p style="color:#aaa;font-size:0.9rem;margin-bottom:18px;">
+      Ye tafseel WhatsApp message mein automatically shamil ho jayegi.
+    </p>
+
     <form id="orderForm">
-      <div class="form-field">
-        <label for="custName">Full Name</label>
-        <input type="text" id="custName" placeholder="Enter Your Name" required>
-      </div>
-      <div class="form-field">
-        <label for="custPhone">Phone Number</label>
-        <input type="tel" id="custPhone" placeholder="03XX-XXXXXXX" required>
-      </div>
-      <div class="form-field">
-        <label for="custAddress">Delivery Address</label>
-        <textarea id="custAddress" placeholder="House/Flat No, Street, Area" Required></textarea>
-      </div>
-      <div class="form-field">
-        <label for="custNotes">Note (optional)</label>
-        <textarea id="custNotes" placeholder="Special delivery instructions..."></textarea>
-      </div>
-      <div class="modal-actions">
-        <button type="button" class="btn btn-outline" onclick="closeOrderModal()">Cancel</button>
-        <button type="submit" class="wa-checkout-btn">
-          <svg viewBox="0 0 32 32"><path d="M16.04 2.67c-7.33 0-13.28 5.95-13.28 13.28 0 2.34.62 4.63 1.79 6.64L2.67 29.3l6.87-1.8a13.24 13.24 0 0 0 6.5 1.66h.01c7.33 0 13.28-5.95 13.28-13.28S23.37 2.67 16.04 2.67z"/></svg>
-          Send Order
-        </button>
-      </div>
+      <label style="display:block;margin-bottom:10px;">
+        Full Name
+        <input type="text" id="custName" required style="width:100%;padding:10px;margin-top:5px;border-radius:6px;border:1px solid #444;background:#111;color:#fff;">
+      </label>
+      <label style="display:block;margin-bottom:10px;">
+        Phone Number
+        <input type="tel" id="custPhone" required style="width:100%;padding:10px;margin-top:5px;border-radius:6px;border:1px solid #444;background:#111;color:#fff;">
+      </label>
+      <label style="display:block;margin-bottom:10px;">
+        Full Address
+        <textarea id="custAddress" required rows="3" style="width:100%;padding:10px;margin-top:5px;border-radius:6px;border:1px solid #444;background:#111;color:#fff;"></textarea>
+      </label>
+      <label style="display:block;margin-bottom:16px;">
+        Notes (optional)
+        <textarea id="custNotes" rows="2" style="width:100%;padding:10px;margin-top:5px;border-radius:6px;border:1px solid #444;background:#111;color:#fff;"></textarea>
+      </label>
+      <button type="submit" class="wa-checkout-btn" style="width:100%;">
+        Confirm & Send on WhatsApp
+      </button>
     </form>
+  </div>
+</div>
+
+<!-- ============ PRODUCT DETAIL MODAL ============ -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal-box product-modal-box" style="max-width: 650px; width: 90%; max-height: 90vh; overflow-y: auto;">
+    <button class="modal-close-btn" id="closeProductModal" style="position: absolute; top: 15px; right: 20px; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer;">&times;</button>
+
+    <div class="modal-product-body" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; align-items: center; padding: 10px;">
+      <div class="modal-product-media" style="text-align: center; background: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px;">
+        <img id="modalProductImg" src="" alt="Product Image" style="max-width: 100%; max-height: 250px; object-fit: contain;">
+      </div>
+      <div class="modal-product-info">
+        <span id="modalProductCat" style="color: var(--gold-light, #c9a24a); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;"></span>
+        <h2 id="modalProductTitle" style="font-size: 1.5rem; margin: 8px 0;"></h2>
+        <span id="modalProductVol" style="color: #aaa; font-size: 0.9rem; display: block; margin-bottom: 10px;"></span>
+
+        <div style="margin: 15px 0; font-size: 1.3rem; font-weight: bold;">
+          <span id="modalProductPrice" style="color: var(--gold-light, #c9a24a);"></span>
+          <span id="modalProductOldPrice" style="color: #777; text-decoration: line-through; font-size: 1rem; margin-left: 8px;"></span>
+        </div>
+
+        <p style="color: #bbb; font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px;">
+          100% pure herbal product crafted for natural hair care. Chemical-free, sulphate-free, and paraben-free formula.
+        </p>
+
+        <div style="display: flex; justify-content: center; width: 100%;">
+          <button id="modalAddToCartBtn" class="btn btn-primary" style="width: 100%; display: flex; align-items: center; justify-content: center; text-align: center;">Add to Cart</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -329,5 +361,6 @@
 <script src="js/data.js" defer></script>
 <script src="js/cart.js" defer></script>
 <script src="js/main.js" defer></script>
+<script src="js/script.js" defer></script>
 </body>
 </html>
