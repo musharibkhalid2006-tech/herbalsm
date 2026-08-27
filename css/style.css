@@ -32,6 +32,7 @@ html{scroll-behavior:smooth;}
 html,body{
   max-width:100%;
   overflow-x:hidden; /* stops any stray element from causing horizontal scroll/jump on mobile */
+  overflow-x: clip !important;
 }
 body{
   margin:0;
@@ -40,6 +41,7 @@ body{
   font-family:var(--font-body);
   line-height:1.55;
   -webkit-font-smoothing:antialiased;
+  position: relative;
 }
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
@@ -86,11 +88,26 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 .topbar .container{display:flex;justify-content:space-between;align-items:center;padding:8px 24px;flex-wrap:wrap;gap:4px;}
 .topbar a{color:var(--gold-light);}
 
-header.site-header{
-  position:sticky;top:0;z-index:60;
-  background:rgba(14,26,18,0.92);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
+/* --- FINAL CLEAN CART & HEADER Z-INDEX FIX --- */
+
+/* Header ko apni sahi limit mein rakho */
+/* Fix Header Transparent Background On Scroll */
+header.site-header {
+  background-color: #0e1a12 !important;
+  background: #0e1a12 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Cart Overlay & Drawer ko Sab Se Upar Set Karo */
+.cart-overlay {
+  position: fixed !important;
+  z-index: 99990 !important;
+}
+
+.cart-drawer {
+  position: fixed !important;
+  z-index: 99999 !important; /* Header, Topbar, Search bar sab ke upar aayega */
 }
 .header-row{display:flex;align-items:center;gap:28px;padding:16px 24px;}
 .logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
@@ -546,44 +563,51 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
   .wa-quick-btn svg{ width:20px; height:20px; }
   .icon-btn{ width:38px; height:38px; }
 
-  /* Dropdown mobile menu — ONE definition, marked !important so it
-     always wins even if a stray/duplicate rule exists elsewhere. */
-  header.site-header{ position:sticky !important; }
-
+  /* Dropdown mobile menu — ONE definition, no duplicates */
+  header.site-header{ position:sticky; } /* sticky already creates its own containing block for the absolute child below */
   nav.main-nav{
-    display:none !important;
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:#0c1610;
+    padding:10px 20px 20px;
+    box-shadow:0 10px 20px rgba(0,0,0,.8);
+    z-index:59;
+    flex-direction:column;
+    gap:0;
   }
-  nav.main-nav.open{
-    display:flex !important;
-    flex-direction:column !important;
-    position:absolute !important;
-    top:100% !important;
-    left:0 !important;
-    right:0 !important;
-    width:100% !important;
-    margin:0 !important;
-    gap:0 !important;
-    background:#0c1610 !important;
-    opacity:1 !important;
-    padding:10px 20px 20px !important;
-    box-shadow:0 14px 30px rgba(0,0,0,.85) !important;
-    z-index:9999 !important;
-    transform:none !important;
-    max-height:calc(100dvh - 100%) !important;
-    overflow-y:auto !important;
-  }
-  nav.main-nav.open a{
-    display:block !important;
-    padding:14px 4px !important;
-    color:#f3ecd9 !important;
-    border-bottom:1px solid rgba(201,162,74,.2) !important;
-    font-size:1rem !important;
-    background:transparent !important;
+  nav.main-nav.open{ display:flex; }
+  nav.main-nav a{
+    display:block;
+    padding:14px 0;
+    color:#f3ecd9;
+    border-bottom:1px solid rgba(201,162,74,.2);
+    font-size:1rem;
   }
 }
 
 /* ---- Small tablets / large phones ---- */
 @media (max-width:768px){
+  .hero-slide {
+    /* (X-axis, Y-axis) -> Percentage change kar ke image ko upar/neeche shift karein */
+    background-position: 75% 30% !important; 
+  }
+  
+  .hero {
+    /* Image container ki height 70vh se 90vh ke beech change karein */
+    min-height: 60vh !important; 
+  }
+  .promo-banner {
+    min-height: 360px !important; /* Mobile par height thodi bari rakhein taaki bottle poori dikhe */
+    background-position: 72% 30% !important; /* 50% 50% se mobile par image bilkul center mein aayegi */
+  }
+  
+  .promo-banner .promo-inner {
+    padding: 24px !important;
+    max-width: 100% !important;
+  }
   .header-row{gap:14px;padding:14px 16px;}
   .logo-text b{font-size:1.15rem;}
   .logo-text span{font-size:.56rem;}
@@ -623,4 +647,246 @@ footer{background:#0a120c;border-top:1px solid var(--line);padding:60px 0 0;}
   .hero-content h1{font-size:1.6rem;}
   .btn{padding:12px 18px;font-size:.8rem;}
   .cat-grid{grid-template-columns:1fr;}
+}
+
+
+
+
+/* =========================== PRODUCT MODAL STYLING =========================== */
+.product-modal-box {
+  max-width: 650px !important;
+  position: relative;
+  padding: 30px !important;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: var(--gold-light);
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.modal-product-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.modal-product-media {
+  background: radial-gradient(circle at 50% 40%, #1c2e20, #0b140d 78%);
+  border-radius: var(--radius-sm);
+  padding: 15px;
+  border: 1px solid var(--line);
+}
+
+.modal-product-media img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+}
+
+.product-card {
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .modal-product-body {
+    grid-template-columns: 1fr;
+  }
+  .modal-product-media img {
+    height: 160px;
+  }
+}
+
+
+
+/* Product Card Image Enhancement */
+.product-card .product-media {
+  height: 220px !important; /* Image container ki height badhane ke liye */
+  overflow: hidden;
+  position: relative;
+  border-radius: var(--radius-sm, 8px) var(--radius-sm, 8px) 0 0;
+  background: #0d1610; /* Clean dark background */
+}
+
+.product-card .product-media img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important; /* Image ko poori jagah cover karne aur bada dikhane ke liye */
+  object-position: 25% 20% !important;
+  transition: transform 0.4s ease;
+  filter: contrast(105%) sharpen(1px);
+}
+
+/* Hover par subtle zoom effect */
+.product-card:hover .product-media img {
+  transform: scale(1.05);
+}
+
+
+
+
+/* Only Heart Icon Layer Fix */
+.product-card .wish-btn,
+.product-card .wishlist-btn,
+.product-card [class*="wish"] {
+  z-index: 999 !important;
+  pointer-events: auto !important;
+}
+
+.product-card .product-media img {
+  z-index: 1 !important;
+}
+
+
+
+
+/* Sticky Header Fix */
+header.site-header {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 999 !important;
+}
+
+
+
+
+/* ===== MODAL Z-INDEX FIX (header/cart ke upar layer karne ke liye) ===== */
+.modal-overlay{
+  z-index: 999999 !important;
+}
+
+/* ===== PRODUCT CARD: laptop jaisa look, mobile par bhi ===== */
+@media (max-width:600px){
+  html body .product-card .product-media{
+    aspect-ratio: 1/1 !important;
+    height: auto !important;
+    padding: 12px !important;
+    display: block !important;
+    position: relative !important;
+    background: radial-gradient(circle at 50% 40%, #1c2e20, #0b140d 78%) !important;
+  }
+  html body .product-card .product-media img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+  html body .badges-col{
+    top: 10px !important;
+    left: 10px !important;
+  }
+  html body .wish-btn{
+    top: 8px !important;
+    right: 8px !important;
+  }
+
+  html body .product-actions{
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+  html body .btn-add{
+    flex: 1 1 0 !important;
+    height: 42px !important;
+    font-size: .72rem !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    padding: 0 6px !important;
+    overflow: hidden !important;
+      border-radius: 20px !important;
+  }
+  html body .btn-add svg{
+    
+    width: 13px !important;
+    height: 13px !important;
+    flex-shrink: 0 !important;
+  }
+  html body .btn-icon-wa{
+      border-radius: 999px !important;
+    width: 30px !important;
+    height: 30px !important;
+    flex-shrink: 0 !important;
+  }
+}
+/* ===== Product Modal ko sahi center karo (mobile) ===== */
+@media (max-width:600px){
+  html body #productModal.modal-overlay{
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 12px !important;
+  }
+  html body #productModal .product-modal-box{
+    margin: 0 auto !important;
+    width: calc(100% - 0px) !important;
+    max-width: 420px !important;
+  }
+}
+
+
+
+
+
+
+/* ===== Mobile header ko bara/spacious banao ===== */
+@media (max-width:920px){
+  html body .header-row{
+    padding: 18px 18px !important;
+    gap: 14px !important;
+  }
+  html body .logo svg{
+    width: 42px !important;
+    height: 42px !important;
+  }
+  html body .logo-text b{
+    font-size: 1.3rem !important;
+  }
+  html body .logo-text span{
+    font-size: .64rem !important;
+  }
+  html body .wa-quick-btn{
+    width: 46px !important;
+    height: 46px !important;
+  }
+  html body .wa-quick-btn svg{
+    width: 22px !important;
+    height: 22px !important;
+  }
+  html body .icon-btn{
+    width: 46px !important;
+    height: 46px !important;
+  }
+  html body .icon-btn svg{
+    width: 21px !important;
+    height: 21px !important;
+  }
+  html body .nav-toggle{
+    padding: 10px !important;
+  }
+  html body .nav-toggle svg{
+    width: 22px !important;
+    height: 22px !important;
+  }
+  html body .cart-count{
+    min-width: 20px !important;
+    height: 20px !important;
+    font-size: .7rem !important;
+  }
 }
